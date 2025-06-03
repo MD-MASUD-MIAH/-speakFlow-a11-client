@@ -7,18 +7,19 @@ import Wishlist from "../components/Wishlist";
 import Featured from "../components/Featured";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import PiriveateRoute from "../context/PiriveateRoute";
 
 
 export const  router = createBrowserRouter([
 
       
-    {path:'/', Component:Root, children:[
+    {path:'/', Component:Root, errorElement:<h1>Error khaisoo mama 404</h1>,children:[
 
 
         {index: true, Component:Home},
         {path:'/allblogs' ,Component:AllBlogs},
-        {path:'/addblog', Component:AddBlogs},
-        {path:'/wishlist', Component:Wishlist},
+        {path:'/addblog', element:<PiriveateRoute><AddBlogs></AddBlogs></PiriveateRoute>},
+        {path:'/wishlist', element:<PiriveateRoute><Wishlist></Wishlist></PiriveateRoute>},
         {path:'/featuredblog',Component:Featured},
         {path:'/login',Component:Login},
         {path:'/register',Component:Register}

@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import GoogleLogin from './GoogleLogin';
-
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router'
 const Register = () => {
   const { registerUser,upDateUser,setUser  } = useContext(AuthContext);
-
+const navigate = useNavigate()
   const handleRegister = (e) => {
     e.preventDefault();
     const fmr = e.target;
@@ -15,6 +16,50 @@ const Register = () => {
 
     console.log(email);
 
+     if(password.length < 6 ){
+        
+           
+      Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Length must be at least 6 characte.`,
+      });
+      return
+       }else if(!/[A-Z]/.test(password)){
+       Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Must have an Uppercase letter in the password`,
+   });
+    return
+   }else if(!/[a-z]/.test(password)){
+       Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Must have a Lowercase letter in the password`,
+      });
+      return
+        }
+// else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+
+//   Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: ` Must  have a special character`,
+//       });
+
+//       return
+//             }else if(!/[0-9]/.test(password)){
+//  Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: ` Must have a numeric character
+// `,
+//       });
+//       return
+
+//             }
+
     registerUser(email, password)
       .then(res => {
         console.log(res.user);
@@ -23,7 +68,13 @@ const Register = () => {
         upDateUser({displayName:name,photoURL: photo }).then(()=>{
       setUser({ ...res?.user, displayName: name, photoURL: photo })
 
+       Swal.fire({
+  title: "Register Success !",
+  icon: "success",
+  draggable: true
+});
 
+navigate('/')
         }).catch(error=>{
 
           console.log(error.message);
