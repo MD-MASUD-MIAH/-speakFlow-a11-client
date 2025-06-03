@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
-
+const {user,logout} = use(AuthContext)
     const linsk =<>
     
     <li><NavLink>Home</NavLink></li>
@@ -11,6 +12,16 @@ const Navbar = () => {
     <li><NavLink to='/featuredblog'> Featured Blogs</NavLink></li>
     <li><NavLink to='/wishlist'>Wishlist</NavLink></li>
      </>
+
+
+  const handleLogout = ()=>{
+
+    logout().then(()=>{}).catch(error=>{
+
+        console.log(error.message);
+        
+    })
+  }
     return (
         <div>
             <div className="navbar bg-base-100 shadow-sm">
@@ -32,10 +43,16 @@ const Navbar = () => {
    {linsk}
     </ul>
   </div>
-  <div className="navbar-end flex gap-4">
+  {
+
+    user?<div className='navbar-end flex gap-4'> 
+        <img className='md:w-10 md:h-10 rounded-full' src={user.photoURL} alt="" />
+        <button onClick={handleLogout} className='btn btn-primary' >Logout</button>
+                     </div>:<div className="navbar-end flex gap-4">
  <NavLink className='btn btn-primary' to='/login'>Login</NavLink>
  <NavLink className='btn btn-primary' to='/register'>Register</NavLink>
   </div>
+  }
 </div>
         </div>
     );
