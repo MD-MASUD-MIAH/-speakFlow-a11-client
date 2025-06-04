@@ -10,11 +10,11 @@ const BlogsAll = ({blog}) => {
 
 const handleWish = () => {
   const orderInfo = {
-    coffeeId: _id, 
-    customerEmail: user?.email,
+    wishId: _id, 
+    wisherEmail: user?.email,
   };
 
-  axios.post(`http://localhost:4000/place-order`, orderInfo)
+  axios.post(`http://localhost:4000/place-wishList`, orderInfo)
     .then((res) => {
       console.log('Order placed:', res.data);
     
@@ -27,7 +27,7 @@ const handleWish = () => {
 
     return (
         <div>
-              <div key={blog._id} className="p-4 border rounded shadow">
+              <div  className="p-4 border rounded shadow">
             <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover mb-2" />
             <h3 className="text-lg font-bold">{blog.title}</h3>
             <p className="text-sm text-gray-600">{blog.category}</p> 

@@ -18,11 +18,11 @@ const {_id} = res
 
 const handleWish = () => {
   const orderInfo = {
-    coffeeId: _id, 
-    customerEmail: user?.email,
+    wishId: _id, 
+    wisherEmail: user?.email,
   };
 
-  axios.post(`http://localhost:4000/place-order`, orderInfo)
+  axios.post(`http://localhost:4000/place-wishList`, orderInfo)
     .then((res) => {
       console.log('Order placed:', res.data);
     

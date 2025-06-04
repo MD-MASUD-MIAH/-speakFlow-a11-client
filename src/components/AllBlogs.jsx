@@ -4,6 +4,7 @@ import BlogsAll from './BlogsAll';
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [category, setCategory] = useState(""); 
+  const [title,setTitle] = useState(""); 
 
   useEffect(() => {
     const url = category
@@ -14,6 +15,18 @@ const AllBlogs = () => {
       .then(res => res.json())
       .then(data => setBlogs(data));
   }, [category]); 
+
+
+
+  useEffect(() => {
+    const url =title
+      ? `http://localhost:4000/search?title=${title}`
+      : `http://localhost:4000/search`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => setBlogs(data));
+  }, [title]); 
 
   return (
     <div className="w-11/12 mx-auto py-6">
@@ -35,6 +48,15 @@ const AllBlogs = () => {
         </select>
       </div>
 
+<input
+  type="search"
+  value={title}
+  onChange={(e) => setTitle(e.target.value)}
+  placeholder="Search..."
+  className="border px-2 py-1 rounded"
+/>
+
+ 
       {/* Blog List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogs.map(blog => <BlogsAll key={blog._id} blog={blog}></BlogsAll>)}

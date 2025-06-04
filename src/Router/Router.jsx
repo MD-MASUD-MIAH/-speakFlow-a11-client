@@ -9,6 +9,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import PiriveateRoute from "../context/PiriveateRoute";
 import BlogsDeatils from "../components/BlogsDeatils";
+import Update from "../components/Update";
 
 
 export const  router = createBrowserRouter([
@@ -30,9 +31,14 @@ export const  router = createBrowserRouter([
         {path:'/login',Component:Login},
         {path:'/register',Component:Register},
         {path:'/details/:id',
-            
+           
             loader:({params})=>fetch(`http://localhost:4000/blogs/${params.id}`),
             element:<PiriveateRoute><BlogsDeatils></BlogsDeatils></PiriveateRoute>
+        },
+        {path:'/update/:id',
+
+              loader:({params})=>fetch(`http://localhost:4000/blogs/${params.id}`),
+            element:<PiriveateRoute><Update></Update></PiriveateRoute>
         }
        
     ]},
