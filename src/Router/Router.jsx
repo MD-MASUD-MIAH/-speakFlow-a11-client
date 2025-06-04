@@ -8,6 +8,7 @@ import Featured from "../components/Featured";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import PiriveateRoute from "../context/PiriveateRoute";
+import BlogsDeatils from "../components/BlogsDeatils";
 
 
 export const  router = createBrowserRouter([
@@ -16,13 +17,23 @@ export const  router = createBrowserRouter([
     {path:'/', Component:Root, errorElement:<h1>Error khaisoo mama 404</h1>,children:[
 
 
-        {index: true, Component:Home},
-        {path:'/allblogs' ,Component:AllBlogs},
+        {index: true,
+            
+            loader:()=>fetch('http://localhost:4000/blogs'),
+            Component:Home},
+        {path:'/allblogs', 
+            
+            Component:AllBlogs},
         {path:'/addblog', element:<PiriveateRoute><AddBlogs></AddBlogs></PiriveateRoute>},
         {path:'/wishlist', element:<PiriveateRoute><Wishlist></Wishlist></PiriveateRoute>},
         {path:'/featuredblog',Component:Featured},
         {path:'/login',Component:Login},
-        {path:'/register',Component:Register}
+        {path:'/register',Component:Register},
+        {path:'/details/:id',
+            
+            loader:({params})=>fetch(`http://localhost:4000/blogs/${params.id}`),
+            element:<PiriveateRoute><BlogsDeatils></BlogsDeatils></PiriveateRoute>
+        }
        
     ]},
 ]) 
