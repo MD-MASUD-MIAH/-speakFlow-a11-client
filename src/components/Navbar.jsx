@@ -94,16 +94,16 @@ const Navbar = () => {
               src={user.photoURL}
               alt=""
             />
-            <button onClick={handleLogout} className="btn btn-primary">
+            <button onClick={handleLogout} className="tom-btn btn">
               Logout
             </button>
           </div>
         ) : (
           <div className="navbar-end flex gap-4">
-            <Link className="btn " to="/login">
+            <Link className="btn tom-btn" to="/login">
               Login
             </Link>
-            <Link className="btn btn-primary" to="/register">
+            <Link className="btn tom-btn" to="/register">
               Register
             </Link>
           </div>

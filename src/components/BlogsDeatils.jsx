@@ -1,11 +1,12 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { use,  } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
 import { Link } from 'react-router';
+import { useQuery } from '@tanstack/react-query';
 
 const BlogsDeatils = () => {
-   const [comment,setComment] =useState([])
+  //  const [comment,setComment] =useState([])
     const blog = useLoaderData() 
     const {user} = use(AuthContext)
 
@@ -45,26 +46,46 @@ const handlecomment = (e)=>{
     })
     
 }
+const {isPending,isError,error,data:comment}=useQuery({
+ queryKey: ['comment', blog._id],
+   refetchInterval: 1000, 
+  refetchOnWindowFocus: true,
+  queryFn:async()=>{
 
-useEffect(()=>{
+    const res = await fetch(`http://localhost:4000/comment/${blog._id}`)
 
-    axios.get(`http://localhost:4000/comment/${blog._id}`).then(res=>{
+    return res.json()
+  }
+})
 
-        if(res.data){
+if(isPending){
+
+  return <Loader></Loader>
+}
+
+if(isError){
+
+  return <p>{error.message}</p>
+}
+// useEffect(()=>{
+
+//     axios.get(`http://localhost:4000/comment/${blog._id}`).then(res=>{
+
+//         if(res.data){
 
            
-        setComment(res.data)
-        }
+//         setComment(res.data)
+//         }
       
-    }).catch(error=>{
+//     }).catch(error=>{
 
-        console.log(error);
+//         console.log(error);
         
-    })
-},[blog,setComment])
+//     })
+// },[blog,setComment])
     
 
-console.log(comment);
+// console.log(comment);
 
     return (
         <div>
@@ -93,7 +114,7 @@ console.log(comment);
 
             <div>
               {
-                comment.map(res=><div key={res._id} res={res}><img className='w-10 h-10' src={res.photo} alt="" />
+                comment?.map(res=><div key={res._id} res={res}><img className='w-10 h-10' src={res.photo} alt="" />
                 <p>{res.userName}</p>
                 <p>{res.comment}</p>
                 </div>)
