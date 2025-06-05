@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Banner = () => {
     return (
@@ -12,7 +14,10 @@ const Banner = () => {
       className="max-w-sm rounded-lg shadow-2xl"
     />
     <div>
-      <h1 className="text-5xl font-bold">Box Office News!</h1>
+     
+      <motion.h1
+      animate={{rotate:180}}
+      className="text-5xl font-bold">Box Office News!</motion.h1>
       <p className="py-6">
         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
         quasi. In deleniti eaque aut repudiandae et a id nisi.
