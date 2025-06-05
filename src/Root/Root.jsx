@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 const Root = () => {
 const navigate = useNavigation()
     return (
-        <div>
+        <div className='overflow-x-hidden'>
     <Navbar></Navbar>
     {
       navigate.state ==='loading'?<Loader></Loader> :<Outlet></Outlet>

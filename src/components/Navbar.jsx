@@ -2,7 +2,8 @@ import { use } from "react";
 import { Link, NavLink } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
-
+import log from '../../public/animation.json'
+import Lottie from "lottie-react";
 const Navbar = () => {
   const { user, logout } = use(AuthContext);
   const linsk = (
@@ -51,8 +52,8 @@ const Navbar = () => {
     });
   };
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
+    <div className="w-11/12 mx-auto">
+      <div className="navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -79,7 +80,9 @@ const Navbar = () => {
               {linsk}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <div className="flex items-center md:px-10"> <span> <div className="w-10 h-10 md:w-16 md:lg:h-16 ">
+            <Lottie className="" animationData={log} loop={true}></Lottie>
+            </div></span> <h1 className="md:text-xl font-bold text-sm md:px-4 ">SpeakFlow</h1></div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{linsk}</ul>
@@ -87,7 +90,7 @@ const Navbar = () => {
         {user ? (
           <div className="navbar-end flex gap-4">
             <img
-              className="md:w-10 md:h-10 rounded-full"
+              className="md:w-10 md:h-10 h-8 w-8 rounded-full"
               src={user.photoURL}
               alt=""
             />
@@ -97,7 +100,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="navbar-end flex gap-4">
-            <Link className="btn btn-primary" to="/login">
+            <Link className="btn " to="/login">
               Login
             </Link>
             <Link className="btn btn-primary" to="/register">

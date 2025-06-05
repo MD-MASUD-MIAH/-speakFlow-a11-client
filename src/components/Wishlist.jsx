@@ -1,17 +1,22 @@
-import axios from 'axios';
+
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import Wish from './wish';
+import useAxiosSecure from '../hook/useAxiosSecure';
+
 
 const Wishlist = () => {
     const{user} = use(AuthContext)
 const [blogs, setBlogs] = useState([]);
 
+
+ const axiosSecure = useAxiosSecure()
+
      useEffect(() => {
 
    
     
-    axios(`http://localhost:4000/my-wishList/${user?.email}`)
+    axiosSecure(`/my-wishList/${user?.email}`)
       .then((data) => {
        
         setBlogs(data?.data); 
@@ -22,7 +27,7 @@ const [blogs, setBlogs] = useState([]);
       .catch((err) => {
         console.log(err);
       });
-  }, [user]);
+  }, [user,axiosSecure]);
     return (
         <div>
             <h1>I am wishlist</h1> 
