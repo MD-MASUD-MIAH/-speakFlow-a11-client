@@ -53,7 +53,7 @@ const Navbar = () => {
   };
   return (
     <div className="w-11/12 mx-auto">
-      <div className="navbar bg-base-100 ">
+      <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -82,7 +82,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center md:px-10"> <span> <div className="w-10 h-10 md:w-16 md:lg:h-16 ">
             <Lottie className="" animationData={log} loop={true}></Lottie>
-            </div></span> <h1 className="md:text-xl font-bold text-sm md:px-4 ">SpeakFlow</h1></div>
+            </div></span> <h1 className="md:text-xl font-bold text-sm md:px-4 text-[#550527] ">SpeakFlow</h1></div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{linsk}</ul>
