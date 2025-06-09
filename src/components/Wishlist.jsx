@@ -35,7 +35,7 @@ const [blogs, setBlogs] = useState([]);
            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
              {
 
-                blogs.map(blog=><Wish key={blog._id} blogs={blogs} setBlogs={setBlogs} blog={blog}></Wish>)
+                blogs?.map(blog=><Wish key={blog._id} blogs={blogs} setBlogs={setBlogs} blog={blog}></Wish>)
             }
            </div>
         </div>

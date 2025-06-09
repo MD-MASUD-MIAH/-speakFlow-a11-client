@@ -27,7 +27,7 @@ const handleWish = () => {
 
     return (
         <div>
-              <div  className="p-4 border rounded shadow">
+              <div  className="p-4 border w-full rounded shadow">
             <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover mb-2" />
             <h3 className="text-lg font-bold">{blog.title}</h3>
             <p className="text-sm text-gray-600">{blog.category}</p> 

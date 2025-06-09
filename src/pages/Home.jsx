@@ -13,7 +13,9 @@ const Home = () => {
     return (
         <div>
            <Banner></Banner>
-           <RecentBlog allBlogs={allBlogs}></RecentBlog>
+       
+               <RecentBlog allBlogs={allBlogs}></RecentBlog>
+      
         </div>
     );
 };

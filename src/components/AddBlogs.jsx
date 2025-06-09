@@ -7,8 +7,13 @@ const AddBlogs = () => {
   const {user} = use(AuthContext)
 
   const handleSubmit = (e) => {
+
+    
     e.preventDefault();
     const form = e.target;
+
+    const userName = user.displayName 
+    const photoURL = user.photoURL
     const newBlog = {
       title: form.title.value,
       image: form.image.value,
@@ -16,9 +21,9 @@ const AddBlogs = () => {
       shortDesc: form.shortDesc.value,
       longDesc: form.longDesc.value,
       addedTime:form.addedTime.value,
-      email:form.email.value
-
-
+      email:form.email.value,
+      userName,
+      photoURL,
   
 
     };
