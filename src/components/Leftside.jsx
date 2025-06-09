@@ -1,4 +1,6 @@
 import { use } from "react";
+import { Link } from "react-router";
+
 import { AuthContext } from "../context/AuthContext";
 import { FaFacebook, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import log from '../../public/asd.json'
@@ -12,7 +14,9 @@ const Leftside = () => {
         About Me
       </h1>
    
-      <div className="flex items-center justify-center pt-6 ">
+   {user?.photoURL? 
+    <div>
+         <div className="flex items-center justify-center pt-6 ">
         <img className="w-8/12" src={user?.photoURL} alt="" />
       </div>
 
@@ -23,10 +27,28 @@ const Leftside = () => {
         reality through code, design, or writing.
       </p>
 
-         <h1 className="uppercase  text-center border-b py-4  text-[#7f8c8d] border-base-300 ">
+     </div>: <div>
+        
+         <div className="max-w-md mx-auto mt-10 p-4  border-l-4 border- text-yellow-800 rounded-xl shadow-md flex items-start space-x-4">
+   
+      <div>
+        <h3 className="text-lg font-semibold">Login Required</h3>
+        <p className="text-sm">
+          You haven't <span className="font-bold">logged in</span> yet — please log in to unlock all the features! 😊
+
+           <Link to="/login" className="text-[#550527] underline">
+              Login
+            </Link>
+        </p>
+      </div>
+    </div>
+        </div>}
+   
+   
+         
+      {user?<div>   <h1 className="uppercase  text-center border-b py-4  text-[#7f8c8d] border-base-300 ">
        Stay Connected
       </h1>
-
      <div className="flex items-center justify-center py-5">
          <div className="flex gap-10">
           <a href="https://web.facebook.com/" target="_blank">
@@ -47,7 +69,7 @@ const Leftside = () => {
 
      <div className=" w-10/12 mx-auto ">
             <Lottie className="" animationData={log} loop={true}></Lottie>
-            </div>
+            </div></div>:''}
     </div>
   
    
