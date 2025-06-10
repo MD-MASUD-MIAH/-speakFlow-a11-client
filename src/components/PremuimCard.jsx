@@ -9,12 +9,12 @@ const PremuimCard = () => {
     return (
         <div className='py-6'>
              <div>
-                  <h1 className="text-center font-bold text-4xl pt-10 uppercase ">
+                  <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
        OUR PRICING PLANS
       </h1>
       <p className="text-center pt-4 pb-10  text-[#7f8c8d]">
        Choose the perfect plan for your writing journey. Whether you're just getting started or ready to 
-        <br /> scale your content, we have a plan that fits your needs.{" "}
+        <br /> <span className='hidden md:block'>scale your content, we have a plan that fits your needs.{" "}</span>
       </p>
              </div>
 
