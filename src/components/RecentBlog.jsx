@@ -1,5 +1,6 @@
 import Blogs from "./Blogs";
 import Leftside from "./Leftside";
+import PremuimCard from "./PremuimCard";
 import RightSide from "./RightSide";
 
 const RecentBlog = ({ allBlogs }) => {
@@ -30,9 +31,10 @@ const RecentBlog = ({ allBlogs }) => {
           ))}
         </aside>
         }
+        <PremuimCard></PremuimCard>
       </div>
 
-        <aside className="  md:col-span-3 order-3 ">
+        <aside className="  md:col-span-3 order-3 sticky h-fit top-0">
           <Leftside></Leftside>
         </aside>
       </div>
