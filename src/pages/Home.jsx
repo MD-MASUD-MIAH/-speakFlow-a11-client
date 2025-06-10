@@ -1,23 +1,17 @@
-import React from 'react';
-import Banner from '../components/Banner';
-import RecentBlog from '../components/RecentBlog';
-import { useLoaderData } from 'react-router';
-
+import { useLoaderData } from "react-router";
+import Banner from "../components/Banner";
+import RecentBlog from "../components/RecentBlog";
 
 const Home = () => {
+  const allBlogs = useLoaderData();
 
-    const allBlogs = useLoaderData() 
+  return (
+    <div className="">
+      <Banner></Banner>
 
-   
-    
-    return (
-        <div>
-           <Banner></Banner>
-       
-               <RecentBlog allBlogs={allBlogs}></RecentBlog>
-      
-        </div>
-    );
+      <RecentBlog allBlogs={allBlogs}></RecentBlog>
+    </div>
+  );
 };
 
 export default Home;

@@ -52,7 +52,7 @@ const Navbar = () => {
     });
   };
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto sticky ">
       <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
