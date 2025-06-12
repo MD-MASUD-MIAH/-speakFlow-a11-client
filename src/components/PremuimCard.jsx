@@ -7,7 +7,7 @@ const PremuimCard = () => {
 
 
     return (
-        <div className='py-6'>
+        <div className='py-6 overflow-x-hidden'>
              <div>
                   <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
        OUR PRICING PLANS

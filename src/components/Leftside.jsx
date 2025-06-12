@@ -9,7 +9,7 @@ const Leftside = () => {
   const { user } = use(AuthContext);
   return (
  
-    <div className="">
+    <div className="overflow-x-hidden">
           <h1 className="uppercase font-bold text-center border-b py-4  text-[#7f8c8d] border-[#7f8c8d] ">
         About Me
       </h1>

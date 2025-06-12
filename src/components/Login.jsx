@@ -35,7 +35,14 @@ const Login = () => {
                 navigate(location?.state ? location.state: '/');
    }).catch(error=>{
 
-    console.log(error.message);
+    console.log(error.message); 
+
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: `${error.message}`,
+ 
+});
     
    })
 
@@ -48,7 +55,7 @@ const Login = () => {
    <div className=' w-11/12 mx-auto py-10 flex flex-col items-center justify-center  min-h-[calc(100vh-300px)]'>
 
 
-<div className="md:max-w-sm   mx-auto border border-[#2ecc71] rounded p-6 shadow ">
+<div className="md:max-w-sm   mx-auto border border-[#550527] rounded p-6 shadow ">
       <h2 className="text-xl font-semibold mb-6">Login Now !</h2>
       <form onSubmit={handleLogin} className="space-y-4">
         <div>
@@ -83,14 +90,14 @@ const Login = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#2ecc71] hover:bg-[#27ae60] text-white font-semibold py-2 px-5  shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out "
+          className="w-full tom-btn "
         >
           Login
         </button>
 
         <p className="text-center text-sm mt-4">
           Don’t have an account? Please{' '} 
-          <Link to='/register' href="#" className="text-[#2ecc71] underline">
+          <Link to='/register' href="#" className="text-[#550527] underline">
           Register
           </Link>
         </p>

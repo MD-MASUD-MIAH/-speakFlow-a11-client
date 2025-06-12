@@ -4,6 +4,7 @@ import { CiBookmark } from "react-icons/ci";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { Link } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 const Blogs = ({ res }) => {
   const { user } = use(AuthContext);
 
@@ -18,10 +19,17 @@ const Blogs = ({ res }) => {
     axios
       .post(`http://localhost:4000/place-wishList`, wishInfo)
       .then((res) => {
-        console.log("Order placed:", res.data);
+        console.log("", res.data);
+
+        Swal.fire({
+          title: "Added to WishList!",
+          icon: "success",
+          draggable: true,
+          timer:1500
+        });
       })
       .catch((err) => {
-        console.error("Error placing order:", err);
+        console.error("", err);
       });
   };
 

@@ -3,7 +3,7 @@ import { FaFacebook, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import log from "../../public/animation.json";
 const Footer = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <footer className="footer sm:footer-horizontal bg-[#550527] text-white  p-10">
         <aside>
           <div className="w-20 h-20">

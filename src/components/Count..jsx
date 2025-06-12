@@ -4,7 +4,7 @@ import { GoCodeReview } from "react-icons/go";
 import { GrFormView, GrGroup } from "react-icons/gr";
 const Count = () => {
   return (
-    <div className="py-10">
+    <div className="py-10 overflow-x-hidden">
       <div>
         <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
           We Provide Best Blogs experience

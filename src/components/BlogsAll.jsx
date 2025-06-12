@@ -1,42 +1,91 @@
-import React, { use } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import { Link } from 'react-router';
-import axios from 'axios';
+import axios from "axios";
+import { use } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
-const BlogsAll = ({blog}) => {
+const BlogsAll = ({ blog }) => {
+  const { user } = use(AuthContext);
+  const { _id } = blog;
+  const navigate  = useNavigate()
+  const handleWish = () => {
+    const orderInfo = {
+      wishId: _id,
+      wisherEmail: user?.email,
+    };
 
-    const {user} = use(AuthContext) 
-   const {_id} = blog
-
-const handleWish = () => {
-  const orderInfo = {
-    wishId: _id, 
-    wisherEmail: user?.email,
+    axios
+      .post(`http://localhost:4000/place-wishList`, orderInfo)
+      .then((res) => {
+        console.log( res.data); 
+        navigate('/wishlist') 
+        Swal.fire({
+  title: "Added to WishList!",
+  icon: "success",
+  draggable: true,
+  timer:1500
+});
+      })
+      .catch((err) => {
+        console.error("Error placing order:", ); 
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: {err},
+  timer:1000
+});
+      });
   };
 
-  axios.post(`http://localhost:4000/place-wishList`, orderInfo)
-    .then((res) => {
-      console.log('Order placed:', res.data);
-    
-    })
-    .catch((err) => {
-      console.error('Error placing order:', err);
-    });
-};
+  return (
+    <div className="overflow-x-hidden">
+      <div className=" p-6 border border-[#550527] shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-tl-4xl rounded-br-4xl" >
+        <div className="flex justify-between pb-4 border-bottom">
+          <div className="flex items-center">
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              className="mb-0 capitalize dark:text-gray-800"
+            >
+              {blog.category}
+            </a>
+          </div>
+         
+        </div>
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <img
+              src={blog.image}
+              alt=""
+              className="block object-cover object-center w-full  dark:bg-gray-500"
+            />
+            <div className="flex items-center text-xs">
+              <span>{blog.addedTime}</span>
+            </div>
+          </div>
+          <div className="space-y-2">
+            <a rel="noopener noreferrer" href="#" className="block">
+              <h3 className="text-xl font-semibold dark:text-violet-600">
+                {blog.title}
+              </h3>
+            </a>
+            <p className="leading-snug dark:text-gray-600">
+              {blog.shortDesc.slice(0, 120)}...
+            </p>
 
-
-    return (
-        <div>
-              <div  className="p-4 border w-full rounded shadow">
-            <img src={blog.image} alt={blog.title} className="w-full h-40 object-cover mb-2" />
-            <h3 className="text-lg font-bold">{blog.title}</h3>
-            <p className="text-sm text-gray-600">{blog.category}</p> 
-
-            <button onClick={handleWish} className='btn btn-primary'>WishList</button>
-              <Link to={`/details/${_id}`}  className="btn btn-primary">Details</Link>
+            <div className="flex gap-4 justify-end mt-4">
+              <button onClick={handleWish} className="btn btn-primary tom-btn">
+                WishList
+              </button>
+              <Link to={`/details/${_id}`} className="btn btn-primary tom-btn">
+                Details
+              </Link>
+            </div>
           </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default BlogsAll;

@@ -6,9 +6,9 @@ import RightSide from "./RightSide";
 
 const RecentBlog = ({ allBlogs }) => {
   return (
-    <div className="w-11/12 mx-auto py-1  ">
+    <div className="w-11/12 mx-auto py-1 ">
       <div className="grid gap-4 grid-cols-1 md:grid-cols-12 ">
-        <aside className="md:col-span-3 order-2 md:order-1 sticky top-16 self-start h-fit">
+        <aside className="md:col-span-3 order-2 md:order-1 md:sticky md:top-8 md:self-start md:h-fit">
           <RightSide></RightSide>
         </aside>
 
@@ -32,7 +32,7 @@ const RecentBlog = ({ allBlogs }) => {
           <Count></Count>
         </div>
 
-        <aside className="  md:col-span-3 order-3  sticky top-16 self-start h-fit">
+        <aside className="  md:col-span-3 order-3  md:sticky md:top-0 md:self-start md:h-fit">
           <Leftside></Leftside>
         </aside>
       </div>

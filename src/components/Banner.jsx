@@ -5,7 +5,7 @@ import team3 from "./../assets/btn1.jpg";
 import team1 from "./../assets/team1.jpg";
 const Banner = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div
         style={{ backgroundImage: `url(${team3})` }}
         className=" bg-no-repeat bg-cover min-h-screen w-full"

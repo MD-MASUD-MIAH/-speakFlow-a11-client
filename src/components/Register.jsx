@@ -77,6 +77,13 @@ const navigate = useNavigate()
 navigate('/')
         }).catch(error=>{
 
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${error.message}`,
+           
+          });
+
           console.log(error.message);
           
         })
@@ -91,8 +98,8 @@ navigate('/')
   };
 
   return (
-    <div className='w-11/12 mx-auto py-10 flex flex-col items-center justify-center'>
-      <div className="md:max-w-sm mx-auto border border-[#2ecc71] rounded p-6 shadow">
+    <div className='w-11/12 mx-auto py-10  flex flex-col items-center justify-center '>
+      <div className="md:max-w-sm  border border-[#550527] rounded p-6 shadow">
         <h2 className="text-xl font-semibold mb-6">Register Now!</h2>
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
@@ -141,14 +148,14 @@ navigate('/')
 
           <button
             type="submit"
-            className="w-full bg-[#2ecc71] hover:bg-[#27ae60] text-white font-semibold py-2 px-5 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
+            className="w-full tom-btn"
           >
             Register
           </button>
 
           <p className="text-center text-sm mt-4">
             Already have an account?{' '}
-            <Link to="/login" className="text-[#2ecc71] underline">
+            <Link to="/login" className="text-[#550527] underline">
               Login
             </Link>
           </p>

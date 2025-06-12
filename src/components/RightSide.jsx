@@ -31,6 +31,7 @@ const RightSide = () => {
           <button className="btn rounded-0"> Entertainment </button>
           <button className="btn rounded-0">Personal Development </button>
           <button className="btn rounded-0"> Education </button>
+          <button className="btn rounded-0"> Technology </button>
         </div>
       </div>
       <div>

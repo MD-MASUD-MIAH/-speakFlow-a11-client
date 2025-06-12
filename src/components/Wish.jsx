@@ -1,8 +1,14 @@
 import axios from 'axios';
 import React from 'react';
 import Swal from 'sweetalert2';
+import Loader from './Loader';
 
 const Wish = ({blog,setBlogs,blogs}) => {
+
+  if(!blog){
+
+    return <Loader></Loader>
+  }
 
       const handleDelte =(id)=>{
 
