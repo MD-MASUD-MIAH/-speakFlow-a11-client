@@ -6,12 +6,22 @@ import Swal from "sweetalert2";
 
 const BlogsAll = ({ blog }) => {
   const { user } = use(AuthContext);
-  const { _id } = blog;
+  const { _id,image,
+title,
+addedTime,
+longDesc,
+shortDesc,category } = blog;
   const navigate  = useNavigate()
   const handleWish = () => {
     const orderInfo = {
       wishId: _id,
       wisherEmail: user?.email,
+      image:image,
+      title:title,
+      addedTime:addedTime,
+      longDesc:longDesc,
+      shortDesc:shortDesc,
+      category:category
     };
 
     axios

@@ -1,7 +1,9 @@
 
 import { useLoaderData } from 'react-router';
-import { useReactTable,getCoreRowModel,flexRender } from '@tanstack/react-table';
-import { Link } from 'react-router';
+import { useReactTable,getCoreRowModel,flexRender,getSortedRowModel } from '@tanstack/react-table';
+import { Link } from 'react-router'; 
+import { DateTime } from 'luxon';
+import { useState } from 'react';
 const Featured = () => {
 
     const topTen = useLoaderData() 
@@ -40,6 +42,11 @@ const Featured = () => {
         accessorKey:'title' ,
 
       },
+       {
+        header:'Adding Date',
+        accessorKey:'addedTime' ,
+        cell:info=>DateTime.fromISO(info.getValue()).toLocaleString(DateTime.DATE_MED)
+      },
       {
         header:'Description',
         accessorKey:'longDesc',
@@ -54,11 +61,11 @@ const Featured = () => {
       }
     ]
 
-  
-const table = useReactTable({data:topTen,columns,getCoreRowModel:getCoreRowModel()})
+  const [sort,setSorting] = useState([])
+const table = useReactTable({data:topTen,columns,getCoreRowModel:getCoreRowModel(),getSortedRowModel:getSortedRowModel(),state:{sorting:sort},onSortingChange:setSorting})
     
     return (
-        <div className='w-11/12 mx-auto overflow-x-auto'>
+        <div className='w-11/12 mx-auto overflow-x-auto '>
              <div>
                   <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
       Top 10 Blogs
@@ -73,10 +80,15 @@ const table = useReactTable({data:topTen,columns,getCoreRowModel:getCoreRowModel
 
 
 
-<table className='table'> 
-  {table.getHeaderGroups().map((headerGroup,index)=><tr key={index}>{headerGroup.headers.map((header,index)=><th key={index}>{flexRender(header.column.columnDef.header,header.getContext())}</th>)}</tr>)}
+<table className='table mb-10'> 
+  
 
-  <thead>
+  <thead> 
+{table.getHeaderGroups().map((headerGroup,index)=><tr key={index}>{headerGroup.headers.map((header,index)=><th className='cursor-pointer' onClick={header.column.getToggleSortingHandler()} key={index}>{flexRender(header.column.columnDef.header,header.getContext())}{
+  
+  {asc:' unsort',des:' sort'}[header.column.getIsSorted()?? null]
+  
+  }</th>)}</tr>)}
    
   </thead> 
   <tbody>

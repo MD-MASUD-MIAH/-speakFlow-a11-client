@@ -10,6 +10,8 @@ const BlogsDeatils = () => {
     const blog = useLoaderData() 
     const {user} = use(AuthContext)
 
+    console.log(blog);
+    
 const handlecomment = (e)=>{
 
     e.preventDefault() 
