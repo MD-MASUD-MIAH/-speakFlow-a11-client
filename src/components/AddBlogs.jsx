@@ -51,7 +51,7 @@ const AddBlogs = () => {
       
     })
 
-    console.log(newBlog);
+   
   e.target.reset() 
 
   };

@@ -1,13 +1,11 @@
 import axios from "axios";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-import Loader from "./Loader";
+
 
 const Wish = ({ blog, setBlogs, blogs }) => {
-  if (!blogs) {
-    return <Loader></Loader>;
-  }
 
+  
 
   const handleDelte = (id) => {
     Swal.fire({
@@ -23,7 +21,7 @@ const Wish = ({ blog, setBlogs, blogs }) => {
         axios
           .delete(`http://localhost:4000/wishList/${id}`)
           .then((res) => {
-            console.log(res.data);
+          
 
             if (res.data.deletedCount) {
               const ramindata = blogs.filter((res) => res._id !== id);
@@ -58,10 +56,7 @@ const Wish = ({ blog, setBlogs, blogs }) => {
           <div className="flex justify-between gap-4">
             <h1 className="text-2xl font-bold">{blog.category}</h1>
             <div className="flex gap-4">
-              <Link
-                to={`/wishList/${blog._id}`}
-                className="btn btn-primary tom-btn"
-              >
+              <Link to={`/details/${blog.wishId}`} className="btn btn-primary tom-btn">
                 Details
               </Link>
               <button

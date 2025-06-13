@@ -8,7 +8,7 @@ const Featured = () => {
 
     const topTen = useLoaderData() 
 
-    console.log(topTen); 
+   
     const columns =[
       {
         header:'No',

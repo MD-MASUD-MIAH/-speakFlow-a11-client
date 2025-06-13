@@ -1,6 +1,7 @@
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import useAxiosSecure from "../hook/useAxiosSecure";
+import useAxiosSecure from "../hook/useAxiosSecure"; 
+import { Link } from "react-router";
 import Wish from "./wish";
 
 const Wishlist = () => {
@@ -17,11 +18,28 @@ const Wishlist = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [user, axiosSecure]);
+  }, [user,axiosSecure]); 
+
+  
   return (
     <div className="w-11/12 mx-auto">
 
-    <div>
+   {blogs.length === 0? <div className="h-[calc(100vh-300px)]  flex items-center justify-center px-4">
+          <div className="text-center py-10">
+            <h1 className="text-2xl font-semibold mb-4">
+                Your wishlist is empty!
+            </h1>
+            <p className=" mb-6">
+             You haven't added anything yet. Start exploring and add your favorite blogs.
+            </p>
+            <Link
+              to="/allblogs"
+              className="inline-block tom-btn"
+            >
+              Add a Blog Now
+            </Link>
+          </div>
+        </div>: <div>
         <div>
         <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
           My Wishlist
@@ -47,7 +65,7 @@ const Wishlist = () => {
           ></Wish>
         ))}
       </div>
-    </div>
+    </div>}
     </div>
   );
 };

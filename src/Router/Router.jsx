@@ -10,7 +10,7 @@ import Register from "../components/Register";
 import PiriveateRoute from "../context/PiriveateRoute";
 import BlogsDeatils from "../components/BlogsDeatils";
 import Update from "../components/Update";
-import WishDeatils from "../components/WishDeatils";
+
 
 
 export const  router = createBrowserRouter([
@@ -38,11 +38,7 @@ export const  router = createBrowserRouter([
             loader:({params})=>fetch(`http://localhost:4000/blogs/${params.id}`),
             element:<PiriveateRoute><BlogsDeatils></BlogsDeatils></PiriveateRoute>
         },
-        {path:'/wishList/:id',
-           
-            loader:({params})=>fetch(`http://localhost:4000/wishList/${params.id}`),
-            element:<PiriveateRoute><WishDeatils></WishDeatils></PiriveateRoute>
-        },
+       
         {path:'/update/:id',
 
               loader:({params})=>fetch(`http://localhost:4000/blogs/${params.id}`),

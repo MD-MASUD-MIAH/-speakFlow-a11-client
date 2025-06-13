@@ -23,7 +23,10 @@ const AllBlogs = () => {
 
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
+      .then((data) =>{
+
+        setBlogs(data)
+      } );
   }, [title]);
 
   // const hadleser =(e)=>{
@@ -79,7 +82,7 @@ const AllBlogs = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {blogs.map((blog) => (
+        {blogs?.map((blog) => (
           <BlogsAll key={blog._id} blog={blog}></BlogsAll>
         ))}
       </div>

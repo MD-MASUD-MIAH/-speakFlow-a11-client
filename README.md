@@ -1,12 +1,44 @@
-# React + Vite
+# SpeakFlow 🗣️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**SpeakFlow** is a dynamic and interactive blog platform where users can freely read, write, comment on blogs, and manage their wishlisted posts. Built with modern frontend tools and animations for a smooth user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Website
 
-## Expanding the ESLint configuration
+👉 [Visit SpeakFlow Live](.....)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+> _Replace the above link with your deployed URL_
+
+---
+
+## 🎯 Purpose
+
+SpeakFlow aims to create an engaging platform for bloggers and readers. It encourages open conversations, creativity, and content discovery — all through a clean and user-friendly interface.
+
+---
+
+## 🚀 Key Features
+
+- 📝 Users can **write** and **update** their own blog posts
+- 📖 Visitors can **read** all public blogs
+- 💬 Comment on any blog to join the discussion
+- ❤️ Add blogs to a **wishlist** for quick access later
+- ✏️ **Edit** your existing blogs easily
+- 📱 Fully responsive and mobile-friendly UI
+- 🔍 Filter and sort blogs for quick discovery (with TanStack Table)
+
+---
+
+## 🛠️ Tech Stack & NPM Packages Used
+
+| Package              | Purpose                                      |
+|-----------------  -  |----------------------------------------------|
+| **React**            | Frontend library                             |
+| **Tailwind CSS**     | Utility-first styling                        |
+| **DaisyUI**          | Tailwind-based UI components                 |
+| **React Icons**      | Icon library                                 |
+| **Lottie React**     | Beautiful and lightweight animations         |
+| **Framer Motion**    | Animations and transitions                   |
+| **TanStack Table**   | Powerful table rendering and sorting         |
+| **React Router DOM** | Routing across pages 

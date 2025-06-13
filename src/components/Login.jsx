@@ -20,7 +20,7 @@ const Login = () => {
 
    const {email,password} = Object.fromEntries(formData.entries()) 
 
-   console.log(email,password);
+   
    
    logInUser(email,password).then(res=>{
 
@@ -35,7 +35,7 @@ const Login = () => {
                 navigate(location?.state ? location.state: '/');
    }).catch(error=>{
 
-    console.log(error.message); 
+  
 
     Swal.fire({
   icon: "error",

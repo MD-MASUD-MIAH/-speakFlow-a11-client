@@ -14,7 +14,7 @@ const navigate = useNavigate()
 
     const { email, password, photo, name } = Object.fromEntries(newUser.entries());
 
-    console.log(email);
+    
 
      if(password.length < 6 ){
         
