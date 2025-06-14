@@ -124,7 +124,7 @@ navigate('/')
   };
 
   return (
-    <div className='w-11/12 mx-auto py-10  flex flex-col items-center justify-center '>
+    <div className='w-11/12 mx-auto py-10  flex flex-col items-center justify-center min-h-[calc(100vh-300px)] '>
       <div className="md:max-w-sm  border border-[#550527] rounded p-6 shadow">
         <h2 className="text-xl font-semibold mb-6">Register Now!</h2>
         <form onSubmit={handleRegister} className="space-y-4">
