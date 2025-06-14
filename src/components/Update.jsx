@@ -21,7 +21,7 @@ const Update = () => {
 
     axios
       .put(
-        `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/blogs/${blog._id}`,
+        `https://blogsite-b11a11-server.vercel.app/blogs/${blog._id}`,
         blogUpdate
       )
       .then((res) => {

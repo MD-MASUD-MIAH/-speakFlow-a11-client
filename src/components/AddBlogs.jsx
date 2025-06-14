@@ -30,10 +30,7 @@ const AddBlogs = () => {
     };
 
     axios
-      .post(
-        "https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/blogs",
-        newBlog
-      )
+      .post("https://blogsite-b11a11-server.vercel.app/blogs", newBlog)
       .then((res) => {
         console.log(res.data);
         navigate("/");

@@ -19,7 +19,7 @@ const Wish = ({ blog, setBlogs, blogs }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/wishList/${id}`)
+          .delete(`https://blogsite-b11a11-server.vercel.app/wishList/${id}`)
           .then((res) => {
           
 

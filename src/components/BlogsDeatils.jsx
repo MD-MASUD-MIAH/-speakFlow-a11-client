@@ -33,10 +33,7 @@ const BlogsDeatils = () => {
     e.target.reset();
 
     axios
-      .post(
-        "https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/comment",
-        commentData
-      )
+      .post("https://blogsite-b11a11-server.vercel.app/comment", commentData)
       .then((res) => {
         console.log(res.data);
       })
@@ -55,7 +52,7 @@ const BlogsDeatils = () => {
     refetchOnWindowFocus: true,
     queryFn: async () => {
       const res = await fetch(
-        `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/comment/${blog._id}`
+        `https://blogsite-b11a11-server.vercel.app/comment/${blog._id}`
       );
       console.log("reunnnnn");
 
@@ -72,7 +69,7 @@ const BlogsDeatils = () => {
   }
   // useEffect(()=>{
 
-  //     axios.get(`https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/comment/${blog._id}`).then(res=>{
+  //     axios.get(`https://blogsite-b11a11-server.vercel.app/comment/${blog._id}`).then(res=>{
 
   //         if(res.data){
 

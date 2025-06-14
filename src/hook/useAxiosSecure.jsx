@@ -3,8 +3,7 @@ import { use } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 const axiosInstance = axios.create({
-  baseURL:
-    "https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app",
+  baseURL: "https://blogsite-b11a11-server.vercel.app",
   withCredentials: true,
 });
 

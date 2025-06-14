@@ -22,7 +22,7 @@ const BlogsAll = ({ blog }) => {
 
     axios
       .post(
-        `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/place-wishList`,
+        `https://blogsite-b11a11-server.vercel.app/place-wishList`,
         orderInfo
       )
       .then((res) => {

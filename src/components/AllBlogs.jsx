@@ -9,8 +9,8 @@ const AllBlogs = () => {
   PageName("All Blog");
   useEffect(() => {
     const url = category
-      ? `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/allBlogs?category=${category}`
-      : `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/allBlogs`;
+      ? `https://blogsite-b11a11-server.vercel.app/allBlogs?category=${category}`
+      : `https://blogsite-b11a11-server.vercel.app/allBlogs`;
 
     fetch(url)
       .then((res) => res.json())
@@ -19,8 +19,8 @@ const AllBlogs = () => {
 
   useEffect(() => {
     const url = title
-      ? `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/search?title=${title}`
-      : `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/search`;
+      ? `https://blogsite-b11a11-server.vercel.app/search?title=${title}`
+      : `https://blogsite-b11a11-server.vercel.app/search`;
 
     fetch(url)
       .then((res) => res.json())
