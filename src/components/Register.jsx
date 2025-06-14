@@ -59,25 +59,25 @@ PageName('Register')
       });
       return
         }
-// else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
 
-//   Swal.fire({
-//       icon: "error",
-//       title: "Oops...",
-//       text: ` Must  have a special character`,
-//       });
+  Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: ` Must  have a special character`,
+      });
 
-//       return
-//             }else if(!/[0-9]/.test(password)){
-//  Swal.fire({
-//       icon: "error",
-//       title: "Oops...",
-//       text: ` Must have a numeric character
-// `,
-//       });
-//       return
+      return
+            }else if(!/[0-9]/.test(password)){
+ Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: ` Must have a numeric character
+`,
+      });
+      return
 
-//             }
+            }
 
     registerUser(email, password)
       .then(res => {

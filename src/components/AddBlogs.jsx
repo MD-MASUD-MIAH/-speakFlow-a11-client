@@ -83,7 +83,7 @@ PageName('Add Blog')
             <input
              name="title"
               type="text" 
-              defaultValue='Education: A Path to Growth and Success'
+           
               placeholder="blog title"
               className="input input-bordered w-full"
             />
@@ -95,7 +95,7 @@ PageName('Add Blog')
             <input
              name="image"
               type="text" 
-              defaultValue={'https://i.ibb.co/fzDCf1bP/books-stack-3d-illustration-isolated-background.jpg'}                                  
+                                             
               placeholder="enter photo url"
               className="input input-bordered w-full"
             />
@@ -158,7 +158,7 @@ PageName('Add Blog')
             </label>
             <textarea
                  name="shortDesc"
-              defaultValue={`Education is the process of gaining knowledge, skills, and values to develop personally and contribute to society. It happens through schools, experiences, and lifelong learning.`}
+             
               className="textarea textarea-bordered w-full"
               rows="3"
               placeholder="Brief description..."
@@ -172,7 +172,7 @@ PageName('Add Blog')
             </label>
             <textarea
                name="longDesc" 
-              defaultValue={`Education is a continuous process of learning that helps individuals acquire knowledge, skills, values, and attitudes essential for personal development and active participation in society. It takes place in formal environments like schools and universities, as well as through informal experiences and self-learning.Education shapes the way people think, reason, and interact with the world. It builds critical thinking, creativity, and problem-solving skills, and empowers individuals to achieve their goals, improve their lives, and make meaningful contributions to their communities. A well-educated society promotes progress, innovation, and equality, making education one of the most powerful tools for change.`}
+            
               className="textarea textarea-bordered w-full"
               rows="5"
               placeholder="Brief description..."
