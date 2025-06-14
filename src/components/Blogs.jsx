@@ -3,31 +3,30 @@ import { use } from "react";
 import { CiBookmark } from "react-icons/ci";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { Link } from "react-router";
-import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 const Blogs = ({ res }) => {
   const { user } = use(AuthContext);
 
-  const {_id,image,
-title,
-addedTime,
-longDesc,
-shortDesc,category } = res;
+  const { _id, image, title, addedTime, longDesc, shortDesc, category } = res;
 
   const handleWish = () => {
     const wishInfo = {
-       wishId: _id,
+      wishId: _id,
       wisherEmail: user?.email,
-      image:image,
-      title:title,
-      addedTime:addedTime,
-      longDesc:longDesc,
-      shortDesc:shortDesc,
-      category:category
+      image: image,
+      title: title,
+      addedTime: addedTime,
+      longDesc: longDesc,
+      shortDesc: shortDesc,
+      category: category,
     };
 
     axios
-      .post(`http://localhost:4000/place-wishList`, wishInfo)
+      .post(
+        `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/place-wishList`,
+        wishInfo
+      )
       .then((res) => {
         console.log("", res.data);
 
@@ -35,7 +34,7 @@ shortDesc,category } = res;
           title: "Added to WishList!",
           icon: "success",
           draggable: true,
-          timer:1500
+          timer: 1500,
         });
       })
       .catch((err) => {
@@ -61,10 +60,8 @@ shortDesc,category } = res;
           </div>
         </div>
 
-      
         <h2 className="text-lg p-4 font-bold mb-2">{res.title}</h2>
 
-        
         <div className="w-full   p-6 rounded">
           <img
             src={res.image}
@@ -72,8 +69,7 @@ shortDesc,category } = res;
             className="w-full max-h-[500px] object-contain rounded-md"
           />
         </div>
- 
-      
+
         <p className="text-sm p-4 text-gray-700 border-b pb-3 border-[#550527]">
           {res?.longDesc?.slice(0, 200)}...
         </p>

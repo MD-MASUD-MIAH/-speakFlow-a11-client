@@ -1,55 +1,54 @@
 import axios from "axios";
 import { use } from "react";
 import { Link, useNavigate } from "react-router";
-import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
 const BlogsAll = ({ blog }) => {
   const { user } = use(AuthContext);
-  const { _id,image,
-title,
-addedTime,
-longDesc,
-shortDesc,category } = blog;
-  const navigate  = useNavigate()
+  const { _id, image, title, addedTime, longDesc, shortDesc, category } = blog;
+  const navigate = useNavigate();
   const handleWish = () => {
     const orderInfo = {
       wishId: _id,
       wisherEmail: user?.email,
-      image:image,
-      title:title,
-      addedTime:addedTime,
-      longDesc:longDesc,
-      shortDesc:shortDesc,
-      category:category
+      image: image,
+      title: title,
+      addedTime: addedTime,
+      longDesc: longDesc,
+      shortDesc: shortDesc,
+      category: category,
     };
 
     axios
-      .post(`http://localhost:4000/place-wishList`, orderInfo)
+      .post(
+        `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/place-wishList`,
+        orderInfo
+      )
       .then((res) => {
-        console.log( res.data); 
-        navigate('/wishlist') 
+        console.log(res.data);
+        navigate("/wishlist");
         Swal.fire({
-  title: "Added to WishList!",
-  icon: "success",
-  draggable: true,
-  timer:1500
-});
+          title: "Added to WishList!",
+          icon: "success",
+          draggable: true,
+          timer: 1500,
+        });
       })
       .catch((err) => {
-        console.error("Error placing order:", ); 
+        console.error("Error placing order:");
         Swal.fire({
-  icon: "error",
-  title: "Oops...",
-  text: {err},
-  timer:1000
-});
+          icon: "error",
+          title: "Oops...",
+          text: { err },
+          timer: 1000,
+        });
       });
   };
 
   return (
     <div className="overflow-x-hidden">
-      <div className=" p-6 border border-[#550527] shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-tl-4xl rounded-br-4xl" >
+      <div className=" p-6 border border-[#550527] shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-tl-4xl rounded-br-4xl">
         <div className="flex justify-between pb-4 border-bottom">
           <div className="flex items-center">
             <a
@@ -60,7 +59,6 @@ shortDesc,category } = blog;
               {blog.category}
             </a>
           </div>
-         
         </div>
         <div className="space-y-4">
           <div className="space-y-2">

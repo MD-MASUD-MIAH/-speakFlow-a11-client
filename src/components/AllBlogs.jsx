@@ -6,11 +6,11 @@ const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
-  PageName('All Blog')
+  PageName("All Blog");
   useEffect(() => {
     const url = category
-      ? `http://localhost:4000/allBlogs?category=${category}`
-      : `http://localhost:4000/allBlogs`;
+      ? `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/allBlogs?category=${category}`
+      : `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/allBlogs`;
 
     fetch(url)
       .then((res) => res.json())
@@ -19,15 +19,14 @@ const AllBlogs = () => {
 
   useEffect(() => {
     const url = title
-      ? `http://localhost:4000/search?title=${title}`
-      : `http://localhost:4000/search`;
+      ? `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/search?title=${title}`
+      : `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/search`;
 
     fetch(url)
       .then((res) => res.json())
-      .then((data) =>{
-
-        setBlogs(data)
-      } );
+      .then((data) => {
+        setBlogs(data);
+      });
   }, [title]);
 
   // const hadleser =(e)=>{
@@ -44,8 +43,8 @@ const AllBlogs = () => {
         <div className="flex flex-col gap-10 md:flex-row items-center justify-between py-6">
           <div className="flex gap-2 items-center w-full">
             <h1 className=" font-semibold">
-              <span className="block md:hidden">Filter  </span>
-             <span className="hidden md:block">  Filter by Category :</span>
+              <span className="block md:hidden">Filter </span>
+              <span className="hidden md:block"> Filter by Category :</span>
             </h1>
             <select
               value={category}

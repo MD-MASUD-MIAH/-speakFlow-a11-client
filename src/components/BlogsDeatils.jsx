@@ -10,7 +10,7 @@ const BlogsDeatils = () => {
   const blog = useLoaderData();
   const { user } = use(AuthContext);
 
-  PageName('Details')
+  PageName("Details");
 
   const handlecomment = (e) => {
     e.preventDefault();
@@ -33,7 +33,10 @@ const BlogsDeatils = () => {
     e.target.reset();
 
     axios
-      .post("http://localhost:4000/comment", commentData)
+      .post(
+        "https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/comment",
+        commentData
+      )
       .then((res) => {
         console.log(res.data);
       })
@@ -51,9 +54,11 @@ const BlogsDeatils = () => {
     refetchInterval: 1000,
     refetchOnWindowFocus: true,
     queryFn: async () => {
-      const res = await fetch(`http://localhost:4000/comment/${blog._id}`);
-          console.log('reunnnnn');
-          
+      const res = await fetch(
+        `https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/comment/${blog._id}`
+      );
+      console.log("reunnnnn");
+
       return res.json();
     },
   });
@@ -67,7 +72,7 @@ const BlogsDeatils = () => {
   }
   // useEffect(()=>{
 
-  //     axios.get(`http://localhost:4000/comment/${blog._id}`).then(res=>{
+  //     axios.get(`https://blogsite-b11a11-server-j3obpeo7m-md-masud-miahs-projects.vercel.app/comment/${blog._id}`).then(res=>{
 
   //         if(res.data){
 
@@ -87,11 +92,12 @@ const BlogsDeatils = () => {
     <div className="w-11/12 mx-auto overflow-x-hidden">
       <div>
         <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
-        Read Full Blog
+          Read Full Blog
         </h1>
         <p className="text-center pt-4 pb-10  text-[#7f8c8d]">
-         Read the complete blog post below, explore the details, and discover insights,<br /> tips, and  stories directly from the author.
-         
+          Read the complete blog post below, explore the details, and discover
+          insights,
+          <br /> tips, and stories directly from the author.
         </p>
       </div>
 
@@ -160,29 +166,40 @@ const BlogsDeatils = () => {
                     <div>
                       <h1 className="font-bold">{res.userName}</h1>
                       <p>{res.comment}</p>
-                    </div> 
-
-                   
+                    </div>
                   </div>
                 </div>
               ))}
 
-               <div>
-                {user.email === blog.email? <div className="space-y-2"><h1 className=" font-bold md:text-xl">Commenting on your own blog is not allowed.</h1><Link to={`/update/${blog._id}`} className="btn tom-btn">
-            Update
-          </Link></div>:<form  onSubmit={handlecomment} className="flex items-center gap-2">
-
-                        <input type="text"  name="comment"  placeholder="comment here" className="input input-neutral" /> 
-                        <button className="tom-btn">comment</button>
-                      </form>}
-                      
-                    </div>
+              <div>
+                {user.email === blog.email ? (
+                  <div className="space-y-2">
+                    <h1 className=" font-bold md:text-xl">
+                      Commenting on your own blog is not allowed.
+                    </h1>
+                    <Link to={`/update/${blog._id}`} className="btn tom-btn">
+                      Update
+                    </Link>
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={handlecomment}
+                    className="flex items-center gap-2"
+                  >
+                    <input
+                      type="text"
+                      name="comment"
+                      placeholder="comment here"
+                      className="input input-neutral"
+                    />
+                    <button className="tom-btn">comment</button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-    
     </div>
   );
 };
