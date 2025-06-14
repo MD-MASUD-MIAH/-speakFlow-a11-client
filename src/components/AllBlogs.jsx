@@ -9,8 +9,8 @@ const AllBlogs = () => {
   PageName("All Blog");
   useEffect(() => {
     const url = category
-      ? `http://localhost:4000/allBlogs?category=${category}`
-      : `http://localhost:4000/allBlogs`;
+      ? `https://blogsite-b11a11-server.vercel.app/allBlogs?category=${category}`
+      : `https://blogsite-b11a11-server.vercel.app/allBlogs`;
 
     fetch(url)
       .then((res) => res.json())
@@ -19,8 +19,8 @@ const AllBlogs = () => {
 
   useEffect(() => {
     const url = title
-      ? `http://localhost:4000/search?title=${title}`
-      : `http://localhost:4000/search`;
+      ? `https://blogsite-b11a11-server.vercel.app/search?title=${title}`
+      : `https://blogsite-b11a11-server.vercel.app/search`;
 
     fetch(url)
       .then((res) => res.json())
