@@ -38,8 +38,8 @@ const AllBlogs = () => {
   // }
 
   return (
-    <div className="w-11/12 mx-auto py-6">
-      <div className="min-h-[calc(100vh-300px)]">
+    <div className="w-11/12 mx-auto py-6 min-h-[calc(100vh-300px)]">
+      <div className="">
         <div className="flex flex-col gap-10 md:flex-row items-center justify-between py-6">
           <div className="flex gap-2 items-center w-full">
             <h1 className=" font-semibold">
