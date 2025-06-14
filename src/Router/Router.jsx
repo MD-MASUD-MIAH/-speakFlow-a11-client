@@ -10,13 +10,15 @@ import Register from "../components/Register";
 import PiriveateRoute from "../context/PiriveateRoute";
 import BlogsDeatils from "../components/BlogsDeatils";
 import Update from "../components/Update";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 
 
 export const  router = createBrowserRouter([
 
       
-    {path:'/', Component:Root, errorElement:<h1>Error khaisoo mama 404</h1>,children:[
+    {path:'/', Component:Root,hydrateFallbackElement:<Loader></Loader>, errorElement:<Error></Error>,children:[
 
 
         {index: true,

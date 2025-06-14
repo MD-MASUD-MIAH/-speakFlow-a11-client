@@ -4,11 +4,12 @@ import { AuthContext } from '../context/AuthContext';
 import { useLoaderData, useNavigate } from 'react-router';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { PageName } from './PageName';
 
 const Update = () => {
    const navigate = useNavigate()
     const blog = useLoaderData()
-
+  PageName('Update')
     const handleupdate =(e)=>{
 
 e.preventDefault()

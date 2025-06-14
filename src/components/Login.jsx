@@ -3,13 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import GoogleLogin from './GoogleLogin';
 import Swal from 'sweetalert2';
+import { PageName } from './PageName';
 const Login = () => {
 
     const navigate = useNavigate() 
     const location = useLocation()
     const {logInUser} = use(AuthContext)
 
-   
+   PageName('Login')
 
     const handleLogin = (e)=>{
 

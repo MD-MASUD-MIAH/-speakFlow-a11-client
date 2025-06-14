@@ -7,7 +7,7 @@ const RightSide = () => {
     const email = e.target.email.value;
     if (email) {
       Swal.fire({
-        title: " Subscribe Success !",
+        title: " You're now subscribed – stay tuned for updates!",
         icon: "success",
         draggable: true,
         timer: 1500,

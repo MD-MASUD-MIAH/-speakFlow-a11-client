@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import BlogsAll from "./BlogsAll";
+import { PageName } from "./PageName";
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
-
+  PageName('All Blog')
   useEffect(() => {
     const url = category
       ? `http://localhost:4000/allBlogs?category=${category}`

@@ -3,13 +3,14 @@ import axios from "axios";
 import { use } from "react";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import { PageName } from "./PageName";
 
 const BlogsDeatils = () => {
   //  const [comment,setComment] =useState([])
   const blog = useLoaderData();
   const { user } = use(AuthContext);
 
-  console.log(blog);
+  PageName('Details')
 
   const handlecomment = (e) => {
     e.preventDefault();
@@ -51,7 +52,8 @@ const BlogsDeatils = () => {
     refetchOnWindowFocus: true,
     queryFn: async () => {
       const res = await fetch(`http://localhost:4000/comment/${blog._id}`);
-
+          console.log('reunnnnn');
+          
       return res.json();
     },
   });
@@ -166,9 +168,9 @@ const BlogsDeatils = () => {
               ))}
 
                <div>
-                {user.email === blog.email? <Link to={`/update/${blog._id}`} className="btn tom-btn">
+                {user.email === blog.email? <div className="space-y-2"><h1 className=" font-bold md:text-xl">Commenting on your own blog is not allowed.</h1><Link to={`/update/${blog._id}`} className="btn tom-btn">
             Update
-          </Link>:<form  onSubmit={handlecomment} className="flex items-center gap-2">
+          </Link></div>:<form  onSubmit={handlecomment} className="flex items-center gap-2">
 
                         <input type="text"  name="comment"  placeholder="comment here" className="input input-neutral" /> 
                         <button className="tom-btn">comment</button>

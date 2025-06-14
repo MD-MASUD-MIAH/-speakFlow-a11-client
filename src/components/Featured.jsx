@@ -4,11 +4,12 @@ import { useReactTable,getCoreRowModel,flexRender,getSortedRowModel } from '@tan
 import { Link } from 'react-router'; 
 import { DateTime } from 'luxon';
 import { useState } from 'react';
+import { PageName } from './PageName';
 const Featured = () => {
 
     const topTen = useLoaderData() 
 
-   
+   PageName('Featured')
     const columns =[
       {
         header:'No',

@@ -4,9 +4,11 @@ import { AuthContext } from '../context/AuthContext';
 import GoogleLogin from './GoogleLogin';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router'
+import { PageName } from './PageName';
 const Register = () => {
   const { registerUser,upDateUser,setUser  } = useContext(AuthContext);
-const navigate = useNavigate()
+const navigate = useNavigate() 
+PageName('Register')
   const handleRegister = (e) => {
     e.preventDefault();
     const fmr = e.target;
@@ -14,7 +16,24 @@ const navigate = useNavigate()
 
     const { email, password, photo, name } = Object.fromEntries(newUser.entries());
 
-    
+    if(name.length < 3){
+       Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `Name length must be at least 3 characte.`,
+      });
+  
+      return
+    }
+    if(photo.length === 0){
+       Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: `enter your photo url`,
+      });
+  
+      return
+    }
 
      if(password.length < 6 ){
         
@@ -94,6 +113,13 @@ navigate('/')
       })
       .catch(error => {
         console.error(error);
+
+           Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${error.message}`,
+           
+          });
       });
   };
 

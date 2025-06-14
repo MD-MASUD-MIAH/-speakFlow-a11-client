@@ -3,11 +3,12 @@ import { AuthContext } from "../context/AuthContext";
 import useAxiosSecure from "../hook/useAxiosSecure"; 
 import { Link } from "react-router";
 import Wish from "./wish";
+import { PageName } from "./PageName";
 
 const Wishlist = () => {
   const { user } = use(AuthContext);
   const [blogs, setBlogs] = useState([]);
-
+PageName('Wishlist')
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {

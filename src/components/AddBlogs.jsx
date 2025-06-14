@@ -4,9 +4,10 @@ import { AuthContext } from '../context/AuthContext';
 import axios from "axios";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { PageName } from "./PageName";
 
 const AddBlogs = () => {
-
+PageName('Add Blog')
 
   const navigate = useNavigate()
   const {user} = use(AuthContext)
