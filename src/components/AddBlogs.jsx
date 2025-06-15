@@ -1,14 +1,14 @@
 import { use } from "react";
 
-import axios from "axios";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
+import useAxiosSecure from "../hook/useAxiosSecure";
 import { PageName } from "./PageName";
 
 const AddBlogs = () => {
   PageName("Add Blog");
-
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { user } = use(AuthContext);
 
@@ -29,7 +29,7 @@ const AddBlogs = () => {
       photoURL,
     };
 
-    axios
+    axiosSecure
       .post("https://blogsite-b11a11-server.vercel.app/blogs", newBlog)
       .then((res) => {
         console.log(res.data);

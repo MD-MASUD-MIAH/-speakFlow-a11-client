@@ -1,12 +1,13 @@
 import { use } from "react";
 
-import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
+import useAxiosSecure from "../hook/useAxiosSecure";
 import { PageName } from "./PageName";
 
 const Update = () => {
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const blog = useLoaderData();
   PageName("Update");
@@ -19,7 +20,7 @@ const Update = () => {
 
     const blogUpdate = Object.fromEntries(plant.entries());
 
-    axios
+    axiosSecure
       .put(
         `https://blogsite-b11a11-server.vercel.app/blogs/${blog._id}`,
         blogUpdate

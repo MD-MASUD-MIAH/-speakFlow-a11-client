@@ -44,7 +44,7 @@ const Blogs = ({ res }) => {
 
   return (
     <div>
-      <div className="card border border-[#550527] shadow-md  rounded-lg  ">
+      <div className="card border-2 border-[#550527] shadow-md b rounded-lg  ">
         <div className="flex items-center p-4 bg-[#550527] text-white rounded-t-lg justify-between mb-3">
           <div className="flex items-center rounded-lg gap-3">
             <img src={res.photoURL} alt="" className="w-10 h-10 rounded-full" />

@@ -20,7 +20,7 @@ const Count = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="card    card-xl shadow-sm border-[#550527]">
+        <div className="card    card-xl shadow-sm border-2 border-[#550527]">
           <div className="card-body gap-6">
             <div>
               <FaMicroblog size={40}></FaMicroblog>
@@ -35,12 +35,12 @@ const Count = () => {
               ></CountUp>
             </h1>
             <div className="justify-start card-actions">
-              <p className="text-xl text-[#0F0F0F99]">Total Blog</p>
+              <p className="text-xl ">Total Blog</p>
             </div>
           </div>
         </div>
 
-        <div className="card    card-xl shadow-sm ">
+        <div className="card  border-2 border-[#550527]  card-xl shadow-sm ">
           <div className="card-body gap-6">
             <div>
               <GoCodeReview size={40}></GoCodeReview>
@@ -55,12 +55,12 @@ const Count = () => {
               ></CountUp>
             </h1>
             <div className="justify-start card-actions">
-              <p className="text-xl text-[#0F0F0F99]">Review</p>
+              <p className="text-xl ">Review</p>
             </div>
           </div>
         </div>
 
-        <div className="card    card-xl shadow-sm ">
+        <div className="card  border-2 border-[#550527]  card-xl shadow-sm ">
           <div className="card-body gap-6">
             <div>
               <GrGroup size={40}></GrGroup>
@@ -75,12 +75,12 @@ const Count = () => {
               ></CountUp>
             </h1>
             <div className="justify-start card-actions">
-              <p className="text-xl text-[#0F0F0F99]">Active Member</p>
+              <p className="text-xl">Active Member</p>
             </div>
           </div>
         </div>
 
-        <div className="card    card-xl shadow-sm ">
+        <div className="card   border-2 border-[#550527] card-xl shadow-sm ">
           <div className="card-body gap-6">
             <div>
               <GrFormView size={60}></GrFormView>
@@ -95,7 +95,7 @@ const Count = () => {
               ></CountUp>
             </h1>
             <div className="justify-start card-actions">
-              <p className="text-xl text-[#0F0F0F99]">Daily Views</p>
+              <p className="text-xl ">Daily Views</p>
             </div>
           </div>
         </div>

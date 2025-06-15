@@ -9,7 +9,9 @@ const AuthProvider = ({children}) => {
     const [user,setUser] = useState(null)
     const [loading,setLoading] = useState(true) 
   const provider = new GoogleAuthProvider()
- 
+  const [isDark, setIsDark] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
   
  const registerUser = (email,passward)=>{
 
@@ -46,7 +48,9 @@ const upDateUser = (updateData)=>{
        logInUser,
        upDateUser,
        logout,
-       googleLogin
+       googleLogin,
+       isDark, 
+       setIsDark,
     }
 
 

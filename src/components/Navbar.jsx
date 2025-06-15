@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import log from "../../public/animation.json";
 import { AuthContext } from "../context/AuthContext";
 import View from "./View";
+import Dark from "./Dark";
 const Navbar = () => {
   const { user, logout } = use(AuthContext);
 
@@ -26,6 +27,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/wishlist">Wishlist</NavLink>
+      </li>
+      <li>
+       <Dark></Dark>
       </li>
     </>
   );
