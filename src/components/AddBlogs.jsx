@@ -50,7 +50,7 @@ const AddBlogs = () => {
   const realtime = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="py-20">
+    <div className="py-20 w-11/12 mx-auto ">
       <div className="md:max-w-5xl mx-auto border border-[#550527] rounded p-6 shadow ">
         <h2 className="text-3xl font-bold  mb-6 ">Create New Blog</h2>
         <form

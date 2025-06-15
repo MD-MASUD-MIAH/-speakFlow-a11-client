@@ -23,7 +23,7 @@ PageName('Wishlist')
 
   
   return (
-    <div className="w-11/12 mx-auto ">
+    <div className="w-11/12 mx-auto overflow-hidden">
 
    {blogs.length === 0? <div className="h-[calc(100vh-300px)]  flex items-center justify-center px-4">
           <div className="text-center py-10">
@@ -40,7 +40,7 @@ PageName('Wishlist')
               Add a Blog Now
             </Link>
           </div>
-        </div>: <div className="h-[calc(100vh-300px)]">
+        </div>: <div className="">
         <div>
         <h1 className="text-center font-bold text-xl md:text-4xl pt-10 uppercase ">
           My Wishlist
