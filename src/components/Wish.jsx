@@ -54,7 +54,7 @@ const Wish = ({ blog, setBlogs, blogs }) => {
           <p className="text-sm text-gray-600">{blog.addedTime}</p>
 
           <div className="flex justify-between gap-4">
-            <h1 className="text-2xl font-bold">{blog.category}</h1>
+            <h1 className="text-sm md:text-2xl font-bold">{blog.category}</h1>
             <div className="flex gap-4">
               <Link to={`/details/${blog.wishId}`} className="btn btn-primary tom-btn">
                 Details
