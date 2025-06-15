@@ -1,26 +1,24 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-import team2 from "../assets/5396346.jpg";
-import team3 from "./../assets/btn1.jpg";
-import team1 from "./../assets/team1.jpg";
+
 const Banner = () => {
   return (
     <div className="overflow-x-hidden">
       <div
-        style={{ backgroundImage: `url(${team3})` }}
+        style={{ backgroundImage: `url(https://i.ibb.co/N6gwvNf2/btn1.jpg)` }}
         className=" bg-no-repeat bg-cover min-h-screen w-full"
       >
         <div className="hero-content flex-col-reverse   justify-between lg:flex-row-reverse">
           <div>
             <motion.img
-              src={team2}
+              src={`https://i.ibb.co/sJD96ms9/5396346.jpg`}
               animate={{ y: [0, 130, 0] }}
               transition={{ repeat: Infinity, duration: 5 }}
               className="md:w-[500px] rounded-tl-2xl rounded-br-2xl shadow-2xl run 
       border-l-8 border-b-8 border-[#550527]"
             />
             <motion.img
-              src={team1}
+              src={`https://i.ibb.co/tP4Wr9sg/team1.jpg`}
               animate={{ x: [0, 130, 0] }}
               transition={{ repeat: Infinity, duration: 10, delay: 5 }}
               className=" md:w-[500px] rounded-tl-2xl rounded-br-2xl shadow-2xl run 

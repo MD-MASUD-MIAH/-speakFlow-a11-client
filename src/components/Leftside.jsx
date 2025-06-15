@@ -3,10 +3,13 @@ import { Link } from "react-router";
 
 import { AuthContext } from "../context/AuthContext";
 import { FaFacebook, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
-import log from '../../public/asd.json'
 import Lottie from "lottie-react";
+import look from '../../public/look.json'
+
 const Leftside = () => {
   const { user } = use(AuthContext);
+
+  
   return (
  
     <div className="overflow-x-hidden">
@@ -67,8 +70,9 @@ const Leftside = () => {
       
      </div>
 
-     <div className=" w-10/12 mx-auto ">
-            <Lottie className="" animationData={log} loop={true}></Lottie>
+     <div  className=" w-10/12 mx-auto ">
+         
+             <Lottie animationData={look} loop={true}></Lottie>
             </div></div>:''}
     </div>
   

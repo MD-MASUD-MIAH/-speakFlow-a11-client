@@ -4,8 +4,12 @@ import { Link, NavLink } from "react-router";
 import Swal from "sweetalert2";
 import log from "../../public/animation.json";
 import { AuthContext } from "../context/AuthContext";
+import View from "./View";
 const Navbar = () => {
   const { user, logout } = use(AuthContext);
+
+  const [ref,setRef] = View()
+
   const linsk = (
     <>
       <li>
@@ -84,8 +88,10 @@ const Navbar = () => {
             {" "}
             <span>
               {" "}
-              <div className="w-10 h-10 md:w-16 md:lg:h-16 ">
-                <Lottie className="" animationData={log} loop={true}></Lottie>
+              <div ref={ref} className="w-10 h-10 md:w-16 md:lg:h-16 ">
+              {
+                setRef &&   <Lottie className="" animationData={log} autoPlay={true} loop={true}></Lottie>
+              }
               </div>
             </span>{" "}
             <h1 className="md:text-xl font-bold text-sm md:px-4 text-[#550527] hidden md:block">
