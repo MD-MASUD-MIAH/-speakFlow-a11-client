@@ -181,15 +181,15 @@ const BlogsDeatils = () => {
                 ) : (
                   <form
                     onSubmit={handlecomment}
-                    className="flex items-center gap-2"
+                    className=" flex flex-col justify-center gap-2"
                   >
-                    <input
+                    <textarea
                       type="text"
                       name="comment"
                       placeholder="comment here"
-                      className="input input-neutral"
+                      className="textarea textarea-accent border-[#550527] focus:border-[#550527]"
                     />
-                    <button className="tom-btn">comment</button>
+                    <button className="tom-btn w-30">comment</button>
                   </form>
                 )}
               </div>

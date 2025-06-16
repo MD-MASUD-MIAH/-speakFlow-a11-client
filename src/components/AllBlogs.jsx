@@ -43,8 +43,8 @@ const AllBlogs = () => {
         <div className="flex flex-col gap-10 md:flex-row items-center justify-between py-6">
           <div className="flex gap-2 items-center w-full">
             <h1 className=" font-semibold">
-              <span className="block md:hidden">Filter </span>
-              <span className="hidden md:block"> Filter by Category :</span>
+              <span className="block lg:hidden">Filter </span>
+              <span className="hidden lg:block"> Filter by Category :</span>
             </h1>
             <select
               value={category}

@@ -47,8 +47,8 @@ const BlogsAll = ({ blog }) => {
   };
 
   return (
-    <div className="overflow-x-hidden">
-      <div className=" p-6 border border-[#550527] shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-tl-4xl rounded-br-4xl">
+    <div className="">
+      <div className="  p-6 border border-[#550527] shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-tl-4xl rounded-br-4xl">
         <div className="flex justify-between pb-4 border-bottom">
           <div className="flex items-center">
             <a
@@ -56,7 +56,10 @@ const BlogsAll = ({ blog }) => {
               href="#"
               className="mb-0 capitalize dark:text-gray-800"
             >
-              {blog.category}
+              <span className="badge badge-xs text-white py-2 px-4 badge-warning bg-[#550527]">
+                {" "}
+                {blog.category}
+              </span>
             </a>
           </div>
         </div>
@@ -65,7 +68,7 @@ const BlogsAll = ({ blog }) => {
             <img
               src={blog.image}
               alt=""
-              className="block object-cover object-center w-full  dark:bg-gray-500"
+              className="block md:h-70 lg:h-84 object-cover object-center w-full  dark:bg-gray-500"
             />
             <div className="flex items-center text-xs">
               <span>{blog.addedTime}</span>
@@ -74,11 +77,11 @@ const BlogsAll = ({ blog }) => {
           <div className="space-y-2">
             <a rel="noopener noreferrer" href="#" className="block">
               <h3 className="text-xl font-semibold dark:text-violet-600">
-                {blog.title}
+                {blog.title.slice(0, 27)}..
               </h3>
             </a>
-            <p className="leading-snug dark:text-gray-600">
-              {blog.shortDesc.slice(0, 120)}...
+            <p className="leading-snug text-xs lg:text-sm dark:text-gray-600">
+              {blog.shortDesc.slice(0, 100)}...
             </p>
 
             <div className="flex gap-4 justify-end mt-4">
