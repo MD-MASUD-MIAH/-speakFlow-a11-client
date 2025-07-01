@@ -8,7 +8,7 @@ const Login = () => {
 
     const navigate = useNavigate() 
     const location = useLocation()
-    const {logInUser} = use(AuthContext)
+    const {logInUser,isDark} = use(AuthContext)
 
    PageName('Login')
 
@@ -56,7 +56,7 @@ const Login = () => {
    <div className=' w-11/12 mx-auto py-10 flex flex-col items-center justify-center  min-h-[calc(100vh-300px)]'>
 
 
-<div className="md:max-w-sm   mx-auto border border-[#550527] rounded p-6 shadow ">
+<div className={`md:max-w-sm   mx-auto border ${isDark?'border-white':'border-[#550527]'}rounded p-6 shadow `}>
       <h2 className="text-xl font-semibold mb-6">Login Now !</h2>
       <form onSubmit={handleLogin} className="space-y-4">
         <div>
@@ -98,7 +98,7 @@ const Login = () => {
 
         <p className="text-center text-sm mt-4">
           Don’t have an account? Please{' '} 
-          <Link to='/register' href="#" className="text-[#550527] underline">
+          <Link to='/register' href="#" className={`"${isDark?'text-white':'text-[#550527]'} underline"`}>
           Register
           </Link>
         </p>

@@ -1,6 +1,9 @@
+import { use } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../context/AuthContext";
 
 const RightSide = () => {
+  const { isDark } = use(AuthContext);
   const handlesumit = (e) => {
     e.preventDefault();
 
@@ -13,11 +16,11 @@ const RightSide = () => {
         timer: 1500,
       });
 
-      e.target.reset()
+      e.target.reset();
     }
   };
   return (
-    <div>
+    <div className="pb-4">
       <div>
         <h1 className="uppercase font-bold  border-b py-4  text-[#7f8c8d] border-base-300 ">
           category
@@ -35,7 +38,11 @@ const RightSide = () => {
         </div>
       </div>
       <div>
-        <h1 className="uppercase font-bold  border-b py-4  text-[#7f8c8d] border-base-300 ">
+        <h1
+          className={`uppercase font-bold  border-b py-4  text-[#7f8c8d] ${
+            isDark ? "border-gray-500" : "border-gray-300"
+          }`}
+        >
           Subscribe
         </h1>
 
@@ -48,7 +55,9 @@ const RightSide = () => {
           <input
             name="email"
             placeholder="type your email"
-            className="border text-center border-base-300 w-full py-2 placeholder:px-4"
+            className={`border text-center ${
+              isDark ? "border-white" : "border-[#550527]"
+            }  w-full py-2 placeholder:px-4`}
             type="email"
           />{" "}
           <br />

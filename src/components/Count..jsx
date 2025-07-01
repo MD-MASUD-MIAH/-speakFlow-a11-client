@@ -1,8 +1,11 @@
+import { use } from "react";
 import CountUp from "react-countup";
 import { FaMicroblog } from "react-icons/fa";
 import { GoCodeReview } from "react-icons/go";
 import { GrFormView, GrGroup } from "react-icons/gr";
+import { AuthContext } from "../context/AuthContext";
 const Count = () => {
+  const {isDark} =use(AuthContext)
   return (
     <div className="py-10 overflow-x-hidden">
       <div>
@@ -20,7 +23,7 @@ const Count = () => {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="card    card-xl shadow-sm border-2 border-[#550527]">
+        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
           <div className="card-body gap-6">
             <div>
               <FaMicroblog size={40}></FaMicroblog>
@@ -40,7 +43,7 @@ const Count = () => {
           </div>
         </div>
 
-        <div className="card  border-2 border-[#550527]  card-xl shadow-sm ">
+        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
           <div className="card-body gap-6">
             <div>
               <GoCodeReview size={40}></GoCodeReview>
@@ -60,7 +63,7 @@ const Count = () => {
           </div>
         </div>
 
-        <div className="card  border-2 border-[#550527]  card-xl shadow-sm ">
+        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
           <div className="card-body gap-6">
             <div>
               <GrGroup size={40}></GrGroup>
@@ -80,17 +83,17 @@ const Count = () => {
           </div>
         </div>
 
-        <div className="card   border-2 border-[#550527] card-xl shadow-sm ">
+        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
           <div className="card-body gap-6">
             <div>
-              <GrFormView size={60}></GrFormView>
+              <GrFormView size={40}></GrFormView>
             </div>
             <h1 className="font-bold text-3xl ">
               <CountUp
                 enableScrollSpy={true}
                 scrollSpyDelay={0}
                 suffix="+"
-                end={9000}
+                end={8000}
                 duration={15}
               ></CountUp>
             </h1>

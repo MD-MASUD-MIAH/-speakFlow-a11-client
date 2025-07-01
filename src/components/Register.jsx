@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router'
 import { PageName } from './PageName';
 const Register = () => {
-  const { registerUser,upDateUser,setUser  } = useContext(AuthContext);
+  const { registerUser,upDateUser,setUser ,isDark } = useContext(AuthContext);
 const navigate = useNavigate() 
 PageName('Register')
   const handleRegister = (e) => {
@@ -125,7 +125,7 @@ navigate('/')
 
   return (
     <div className='w-11/12 mx-auto py-10  flex flex-col items-center justify-center min-h-[calc(100vh-300px)] '>
-      <div className="md:max-w-sm  border border-[#550527] rounded p-6 shadow">
+      <div className={`md:max-w-sm  border ${isDark?'border-white':'border-[#550527]'} rounded p-6 shadow`}>
         <h2 className="text-xl font-semibold mb-6">Register Now!</h2>
         <form onSubmit={handleRegister} className="space-y-4">
           <div>
@@ -181,7 +181,7 @@ navigate('/')
 
           <p className="text-center text-sm mt-4">
             Already have an account?{' '}
-            <Link to="/login" className="text-[#550527] underline">
+            <Link to="/login" className={`text-[#550527] underline ${isDark?'text-white':'text-[#550527]'}`}>
               Login
             </Link>
           </p>

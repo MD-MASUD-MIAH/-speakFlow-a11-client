@@ -6,7 +6,7 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 const Blogs = ({ res }) => {
-  const { user } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
 
   const { _id, image, title, addedTime, longDesc, shortDesc, category } = res;
 
@@ -44,7 +44,11 @@ const Blogs = ({ res }) => {
 
   return (
     <div>
-      <div className="card border-2 border-[#550527] shadow-md b rounded-lg  ">
+      <div
+        className={`card border-1 ${
+          isDark ? "border-white" : "border-[#550527]"
+        } shadow-md b rounded-lg  `}
+      >
         <div className="flex items-center p-4 bg-[#550527] text-white rounded-t-lg justify-between mb-3">
           <div className="flex items-center rounded-lg gap-3">
             <img src={res.photoURL} alt="" className="w-10 h-10 rounded-full" />
@@ -70,7 +74,11 @@ const Blogs = ({ res }) => {
           />
         </div>
 
-        <p className="text-sm p-4 text-gray-700 border-b pb-3 border-[#550527]">
+        <p
+          className={`text-sm p-4   ${
+            isDark ? "text-white" : "text-gray-700 "
+          } border-b pb-3 border-[#550527]`}
+        >
           {res?.longDesc?.slice(0, 200)}...
         </p>
 

@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 import BlogsAll from "./BlogsAll";
 import { PageName } from "./PageName";
 
 const AllBlogs = () => {
+  const { isDark } = use(AuthContext);
   const [blogs, setBlogs] = useState([]);
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
@@ -49,7 +51,9 @@ const AllBlogs = () => {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="border px-3 py-1 rounded select select-primary border-[#550527]"
+              className={`border px-3 py-1 rounded select select-primary ${
+                isDark ? "border-white" : "border-[#550527]"
+              }`}
             >
               <option value="">All</option>
 
@@ -71,7 +75,9 @@ const AllBlogs = () => {
               name="text"
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Type here"
-              className="input w-full border-[#550527]"
+              className={`input w-full ${
+                isDark ? "border-white" : "border-[#550527]"
+              }`}
             />
 
             <button type="submit" className="tom-btn">
@@ -81,7 +87,7 @@ const AllBlogs = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
         {blogs?.map((blog) => (
           <BlogsAll key={blog._id} blog={blog}></BlogsAll>
         ))}

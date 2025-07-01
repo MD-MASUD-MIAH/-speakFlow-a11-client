@@ -41,10 +41,14 @@ const Update = () => {
       });
   };
 
-  const { user } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
   return (
     <div className="py-20 w-11/12 mx-auto">
-      <div className="md:max-w-5xl mx-auto border border-[#550527] rounded p-6 shadow ">
+      <div
+        className={`md:max-w-5xl mx-auto border border-[#550527] rounded p-6 shadow ${
+          isDark ? "border-white" : "border-[#550527]"
+        } `}
+      >
         <h2 className="text-3xl font-bold  mb-6 ">Update Blog</h2>
         <form
           onSubmit={handleupdate}

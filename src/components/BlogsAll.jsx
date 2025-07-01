@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 
 const BlogsAll = ({ blog }) => {
-  const { user } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
   const { _id, image, title, addedTime, longDesc, shortDesc, category } = blog;
   const navigate = useNavigate();
   const handleWish = () => {
@@ -47,51 +47,60 @@ const BlogsAll = ({ blog }) => {
   };
 
   return (
-    <div className="">
-      <div className="  p-6 border border-[#550527] shadow-md dark:bg-gray-50 dark:text-gray-800 rounded-tl-4xl rounded-br-4xl">
-        <div className="flex justify-between pb-4 border-bottom">
+    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md w-full max-w-xs">
+      <div
+        className={`p-4 border ${
+          isDark ? "border-white" : "border-[#550527]"
+        } shadow-sm dark:bg-gray-50 dark:text-gray-800 rounded-tl-2xl rounded-br-2xl h-full flex flex-col`}
+      >
+        {/* Category Badge */}
+        <div className="flex justify-between pb-2 border-b border-gray-200">
           <div className="flex items-center">
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="mb-0 capitalize dark:text-gray-800"
-            >
-              <span className="badge badge-xs text-white py-2 px-4 badge-warning bg-[#550527]">
-                {" "}
-                {blog.category}
-              </span>
-            </a>
+            <span className="badge badge-xs text-white py-2 px-4 badge-warning bg-[#550527]">
+              {" "}
+              {blog.category}
+            </span>
           </div>
         </div>
-        <div className="space-y-4">
-          <div className="space-y-2">
+
+        {/* Content */}
+        <div className="space-y-2 flex-grow flex flex-col mt-2">
+          {/* Image */}
+          <div className="overflow-hidden rounded-lg">
             <img
               src={blog.image}
-              alt=""
-              className="block md:h-70 lg:h-84 object-cover object-center w-full  dark:bg-gray-500"
+              alt={blog.title}
+              className="w-full h-32 object-cover object-center dark:bg-gray-500 transition-transform duration-300 group-hover:scale-105"
             />
-            <div className="flex items-center text-xs">
-              <span>{blog.addedTime}</span>
-            </div>
           </div>
-          <div className="space-y-2">
-            <a rel="noopener noreferrer" href="#" className="block">
-              <h3 className="text-xl font-semibold dark:text-violet-600">
-                {blog.title.slice(0, 27)}..
-              </h3>
-            </a>
-            <p className="leading-snug text-xs lg:text-sm dark:text-gray-600">
-              {blog.shortDesc.slice(0, 100)}...
-            </p>
 
-            <div className="flex gap-4 justify-end mt-4">
-              <button onClick={handleWish} className="btn btn-primary tom-btn">
-                WishList
-              </button>
-              <Link to={`/details/${_id}`} className="btn btn-primary tom-btn">
-                Details
-              </Link>
-            </div>
+          {/* Date */}
+          <div className="text-xs text-gray-500 mt-1">{blog.addedTime}</div>
+
+          {/* Text Content */}
+          <div className="space-y-1 flex-grow">
+            <h3 className="text-sm font-semibold dark:text-violet-600 line-clamp-2">
+              {blog.title}
+            </h3>
+            <p className="text-xs dark:text-gray-600 line-clamp-2 leading-tight">
+              {blog.shortDesc}
+            </p>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex gap-2 justify-end mt-3">
+            <button
+              onClick={handleWish}
+              className="text-xs bg-[#550527] hover:bg-[#450418] text-white px-3 py-1 rounded-md transition-colors duration-200"
+            >
+              Wish
+            </button>
+            <Link
+              to={`/details/${_id}`}
+              className="text-xs bg-[#550527] hover:bg-[#450418] text-white px-3 py-1 rounded-md transition-colors duration-200"
+            >
+              View
+            </Link>
           </div>
         </div>
       </div>
