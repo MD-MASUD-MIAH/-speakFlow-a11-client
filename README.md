@@ -42,3 +42,39 @@ SpeakFlow aims to create an engaging platform for bloggers and readers. It encou
 | **Framer Motion**    | Animations and transitions                   |
 | **TanStack Table**   | Powerful table rendering and sorting         |
 | **React Router DOM** | Routing across pages 
+
+
+
+🧩 Backend Repo :
+
+[  https://github.com/MD-MASUD-MIAH/b11a11-server-side-MD-MASUD-MIAH ]
+
+
+
+
+
+🧪 Local Setup Instructions
+Follow these steps to run SpeakFlow on your local machine:
+
+⚙️ Prerequisites
+Make sure you have installed:
+
+Node.js (v18 or later)
+
+npm or yarn
+
+MongoDB (local or cloud like MongoDB Atlas)
+
+🔐 Environment Variables
+
+
+VITE_FIREBASE_API_KEY=...
+
+VITE_FIREBASE_AUTH_DOMAIN=...
+
+VITE_FIREBASE_PROJECT_ID=...
+
+VITE_FIREBASE_STORAGE_BUCKET=...
+
+VITE_FIREBASE_APP_ID=...
+ 
