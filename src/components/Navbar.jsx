@@ -73,7 +73,7 @@ const Navbar = () => {
         isDark ? "bg-[#1E232B]" : "bg-[#550527] text-white"
       } border-b border-base-300`}
     >
-      <div className=" w-11/12 mx-auto ">
+      <div className="w-11/12 mx-auto">
         <div className="navbar py-1 px-0">
           <div className="navbar-start">
             <div className="dropdown ">
@@ -109,7 +109,7 @@ const Navbar = () => {
               {" "}
               <span>
                 {" "}
-                <div ref={ref} className="w-10 h-10 md:w-16 md:lg:h-16 ">
+                <div ref={ref} className="w-10 h-10 md:w-14 md:lg:h-14 ">
                   {setRef && (
                     <Lottie
                       className=""
@@ -130,7 +130,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{linsk}</ul>
+            <ul className="menu menu-horizontal space-x-6 px-1">{linsk}</ul>
           </div>
           {user ? (
             <div className="navbar-end flex gap-4">

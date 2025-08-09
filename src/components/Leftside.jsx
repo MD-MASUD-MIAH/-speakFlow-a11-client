@@ -65,7 +65,7 @@ const Leftside = () => {
                 <FaGithub size={24}></FaGithub>
               </a>
               <a href="https://www.linkedin.com/feed/" target="_blank">
-                <FaLinkedin className="text-[ #0077B5]" size={24}></FaLinkedin>
+                <FaLinkedin className="text-[#0077B5]" size={24}></FaLinkedin>
               </a>
               <a href="https://www.youtube.com/" target="_blank">
                 <FaYoutube className="text-[#FF0000]" size={24}></FaYoutube>

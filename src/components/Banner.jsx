@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-
+import { Link } from "react-router";
 import { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 const Banner = () => {
@@ -78,7 +78,7 @@ const Banner = () => {
                 turn into stories, experiences spark learning,
               </p>
               <div className="flex justify-center lg:justify-start">
-                <button className="btn tom-btn">Get Started</button>
+                <Link to={'/allblogs'} className="btn tom-btn">Get Started</Link>
               </div>
             </div>
           </div>

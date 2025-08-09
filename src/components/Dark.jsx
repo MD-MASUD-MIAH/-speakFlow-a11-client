@@ -1,9 +1,8 @@
-import { use, useEffect,  } from "react";
+import { use, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 
-
 const Dark = () => {
-  const {isDark, setIsDark} = use(AuthContext)
+  const { isDark, setIsDark } = use(AuthContext);
 
   useEffect(() => {
     const theme = isDark ? "dark" : "light";
@@ -15,7 +14,7 @@ const Dark = () => {
     <label className="flex items-center gap-2 cursor-pointer">
       <input
         type="checkbox"
-        className="toggle"
+        className="toggle border-white text-white"
         checked={isDark}
         onChange={() => setIsDark(!isDark)}
       />
