@@ -11,7 +11,7 @@ const AllBlogs = () => {
   PageName("All Blog");
   useEffect(() => {
     const url = category
-      ? `http://localhost:4000/allBlogs?category=${category}`
+      ? `http://localhost:4000/allBlogs?category=${encodeURIComponent(category)}`
       : `http://localhost:4000/allBlogs`;
 
     fetch(url)

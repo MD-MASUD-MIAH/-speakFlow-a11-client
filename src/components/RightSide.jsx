@@ -14,6 +14,7 @@ const RightSide = ({ handleCategory }) => {
     "travel",
     "food",
     "lifestyle",
+    "",
   ];
 
   const handlesumit = (e) => {
@@ -43,9 +44,9 @@ const RightSide = ({ handleCategory }) => {
             <button
               key={index}
               onClick={() => handleCategory(item)}
-              className="btn rounded-0"
+              className="btn rounded-0 uppercase"
             >
-              {item}
+              {item?item:'Latest Blogs'}
             </button>
           ))}
         </div>

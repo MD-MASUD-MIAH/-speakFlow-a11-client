@@ -14,7 +14,7 @@ const RecentBlog = () => {
 
   useEffect(() => {
     const url = category
-      ? `http://localhost:4000/allBlogs?category=${category}`
+      ? `http://localhost:4000/allBlogs?category=${encodeURIComponent(category)}`
       : `http://localhost:4000/allBlogs`;
 
     fetch(url)
@@ -34,7 +34,7 @@ const RecentBlog = () => {
 
         <div className=" md:col-span-6 order-1 md:order-2 ">
           <h1 className="text-center font-bold text-4xl pt-10 uppercase ">
-            Latest Blog
+            Latest Blogs
           </h1>
           <p className="text-center pt-4 pb-10  text-[#7f8c8d]">
             Stay updated with our freshest content! Explore insightful articles,
