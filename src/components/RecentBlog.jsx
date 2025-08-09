@@ -14,10 +14,10 @@ const RecentBlog = () => {
 
   useEffect(() => {
     const url = category
-      ? `https://blogsite-b11a11-server.vercel.app/allBlogs?category=${encodeURIComponent(
+      ? `http://localhost:4000/allBlogs?category=${encodeURIComponent(
           category
         )}`
-      : `https://blogsite-b11a11-server.vercel.app/allBlogs`;
+      : `http://localhost:4000/allBlogs`;
 
     fetch(url)
       .then((res) => res.json())

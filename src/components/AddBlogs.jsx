@@ -30,7 +30,7 @@ const AddBlogs = () => {
     };
 
     axiosSecure
-      .post("https://blogsite-b11a11-server.vercel.app/blogs", newBlog)
+      .post("http://localhost:4000/blogs", newBlog)
       .then((res) => {
         console.log(res.data);
         navigate("/");
