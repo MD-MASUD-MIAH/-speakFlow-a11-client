@@ -56,8 +56,10 @@ const Blogs = ({ res }) => {
           </div>
 
           <div className="flex items-center justify-center gap-2">
-            <CiBookmark size={24}></CiBookmark>
-            <IoShareSocialOutline size={24}></IoShareSocialOutline>
+           <span className="badge badge-xs text-white py-2 px-4 badge-warning bg-[#550527]">
+              {" "}
+              {res.category}
+            </span>
           </div>
         </div>
 

@@ -2,8 +2,20 @@ import { use } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 
-const RightSide = () => {
+const RightSide = ({ handleCategory }) => {
   const { isDark } = use(AuthContext);
+
+  const category = [
+    "technology",
+    "education",
+    "personalDevelopment",
+    "entertainment",
+    "health&fitness",
+    "travel",
+    "food",
+    "lifestyle",
+  ];
+
   const handlesumit = (e) => {
     e.preventDefault();
 
@@ -27,14 +39,15 @@ const RightSide = () => {
         </h1>
 
         <div className=" flex flex-col">
-          <button className="btn rounded-0"> Lifestyle</button>
-          <button className="btn rounded-0"> Food </button>
-          <button className="btn rounded-0"> Travel </button>
-          <button className="btn rounded-0"> Health & Fitness</button>
-          <button className="btn rounded-0"> Entertainment </button>
-          <button className="btn rounded-0">Personal Development </button>
-          <button className="btn rounded-0"> Education </button>
-          <button className="btn rounded-0"> Technology </button>
+          {category.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => handleCategory(item)}
+              className="btn rounded-0"
+            >
+              {item}
+            </button>
+          ))}
         </div>
       </div>
       <div>

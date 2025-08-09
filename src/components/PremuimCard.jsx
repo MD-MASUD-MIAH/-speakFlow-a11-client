@@ -1,10 +1,36 @@
 import { use } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import View from "./View";
 
 const PremuimCard = () => {
   const [ref, setRef] = View();
   const { isDark } = use(AuthContext);
+
+  const handleStarter = () => {
+    Swal.fire({
+      title: "Starter Pack Selected!",
+      text: "You have chosen the Starter Pack.",
+      icon: "success",
+      draggable: true,
+    });
+  };
+  const handlePlus = () => {
+    Swal.fire({
+      title: "Plus Pack Selected!",
+      text: "You have chosen the Plus Pack.",
+      icon: "success",
+      draggable: true,
+    });
+  };
+  const handlePremium = () => {
+    Swal.fire({
+      title: "Premium Pack Selected!",
+      text: "You have chosen the Premium Pack.",
+      icon: "success",
+      draggable: true,
+    });
+  };
 
   return (
     <div className="py-6 overflow-x-hidden">
@@ -36,7 +62,7 @@ const PremuimCard = () => {
             </span>
             <div className="flex justify-between">
               <h2 className="text-xl font-bold">Starter</h2>
-              <span className="text-xl">$0/mo</span>
+              <span className="text-xl">$10/mo</span>
             </div>
             <ul className="mt-6 flex flex-col gap-2 text-xs">
               <li>
@@ -143,7 +169,9 @@ const PremuimCard = () => {
               </li>
             </ul>
             <div className="mt-6">
-              <button className="btn tom-btn w-full">Subscribe</button>
+              <button onClick={handleStarter} className="btn tom-btn w-full">
+                Claim Pack
+              </button>
             </div>
           </div>
         </div>
@@ -268,7 +296,9 @@ const PremuimCard = () => {
               </li>
             </ul>
             <div className="mt-6">
-              <button className="btn tom-btn w-full">Subscribe</button>
+              <button onClick={handlePlus} className="btn tom-btn w-full">
+                Claim Pack
+              </button>
             </div>
           </div>
         </div>
@@ -394,7 +424,9 @@ const PremuimCard = () => {
               </li>
             </ul>
             <div className="mt-6">
-              <button className="btn tom-btn w-full">Subscribe</button>
+              <button onClick={handlePremium} className="btn tom-btn w-full">
+                Claim Pack
+              </button>
             </div>
           </div>
         </div>
