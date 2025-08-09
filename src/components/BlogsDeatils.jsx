@@ -33,7 +33,7 @@ const BlogsDeatils = () => {
     e.target.reset();
 
     axios
-      .post("https://blogsite-b11a11-server.vercel.app/comment", commentData)
+      .post("http://localhost:4000/comment", commentData)
       .then((res) => {
         console.log(res.data);
       })
@@ -51,9 +51,7 @@ const BlogsDeatils = () => {
     refetchInterval: 1000,
     refetchOnWindowFocus: true,
     queryFn: async () => {
-      const res = await fetch(
-        `https://blogsite-b11a11-server.vercel.app/comment/${blog._id}`
-      );
+      const res = await fetch(`http://localhost:4000/comment/${blog._id}`);
       console.log("reunnnnn");
 
       return res.json();
@@ -69,7 +67,7 @@ const BlogsDeatils = () => {
   }
   // useEffect(()=>{
 
-  //     axios.get(`https://blogsite-b11a11-server.vercel.app/comment/${blog._id}`).then(res=>{
+  //     axios.get(`http://localhost:4000/comment/${blog._id}`).then(res=>{
 
   //         if(res.data){
 

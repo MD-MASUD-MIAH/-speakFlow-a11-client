@@ -21,10 +21,7 @@ const BlogsAll = ({ blog }) => {
     };
 
     axios
-      .post(
-        `https://blogsite-b11a11-server.vercel.app/place-wishList`,
-        orderInfo
-      )
+      .post(`http://localhost:4000/place-wishList`, orderInfo)
       .then((res) => {
         console.log(res.data);
         navigate("/wishlist");
@@ -47,7 +44,7 @@ const BlogsAll = ({ blog }) => {
   };
 
   return (
-    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md w-full max-w-xs">
+    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md w-full ">
       <div
         className={`p-4 border ${
           isDark ? "border-white" : "border-[#550527]"

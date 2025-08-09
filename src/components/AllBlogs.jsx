@@ -11,8 +11,8 @@ const AllBlogs = () => {
   PageName("All Blog");
   useEffect(() => {
     const url = category
-      ? `https://blogsite-b11a11-server.vercel.app/allBlogs?category=${category}`
-      : `https://blogsite-b11a11-server.vercel.app/allBlogs`;
+      ? `http://localhost:4000/allBlogs?category=${category}`
+      : `http://localhost:4000/allBlogs`;
 
     fetch(url)
       .then((res) => res.json())
@@ -21,8 +21,8 @@ const AllBlogs = () => {
 
   useEffect(() => {
     const url = title
-      ? `https://blogsite-b11a11-server.vercel.app/search?title=${title}`
-      : `https://blogsite-b11a11-server.vercel.app/search`;
+      ? `http://localhost:4000/search?title=${title}`
+      : `http://localhost:4000/search`;
 
     fetch(url)
       .then((res) => res.json())
@@ -87,7 +87,7 @@ const AllBlogs = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-11/12 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-15 w-full mx-auto py-10">
         {blogs?.map((blog) => (
           <BlogsAll key={blog._id} blog={blog}></BlogsAll>
         ))}

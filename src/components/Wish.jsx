@@ -19,7 +19,7 @@ const Wish = ({ blog, setBlogs, blogs }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://blogsite-b11a11-server.vercel.app/wishList/${id}`)
+          .delete(`http://localhost:4000/wishList/${id}`)
           .then((res) => {
           
 

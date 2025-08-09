@@ -19,20 +19,23 @@ const Navbar = () => {
       <li>
         <NavLink to="/allblogs">All blogs</NavLink>
       </li>
-     {user && <>
-      <li>
-        <NavLink to="/addblog">Add Blog</NavLink>
-      </li>
-     </> }
+      {user && (
+        <>
+          <li>
+            <NavLink to="/addblog">Add Blog</NavLink>
+          </li>
+        </>
+      )}
       <li>
         <NavLink to="/featuredblog"> Featured Blogs</NavLink>
       </li>
-     {user && <>
-     
-     
-      <li>
-        <NavLink to="/wishlist">Wishlist</NavLink>
-      </li></>}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/wishlist">Wishlist</NavLink>
+          </li>
+        </>
+      )}
       <li>
         <Dark></Dark>
       </li>
@@ -66,12 +69,12 @@ const Navbar = () => {
   };
   return (
     <div
-      className={`sticky top-0 z-20 ${
-        isDark ? "bg-[#1E232B]" : "bg-white"
+      className={` sticky top-0 z-20 ${
+        isDark ? "bg-[#1E232B]" : "bg-[#550527] text-white"
       } border-b border-base-300`}
     >
-      <div className="w-11/12 mx-auto   ">
-        <div className="navbar py-0">
+      <div className=" w-11/12 mx-auto ">
+        <div className="navbar py-1 px-0">
           <div className="navbar-start">
             <div className="dropdown ">
               <div
@@ -102,7 +105,7 @@ const Navbar = () => {
                 {linsk}
               </ul>
             </div>
-            <div className="flex items-center md:px-10">
+            <div className="flex items-center">
               {" "}
               <span>
                 {" "}
@@ -117,7 +120,11 @@ const Navbar = () => {
                   )}
                 </div>
               </span>{" "}
-              <h1 className={`md:text-xl font-bold text-sm md:px-4 ${isDark?"text-white":'text-[#550527]'} hidden md:block`}>
+              <h1
+                className={`md:text-xl font-bold text-sm md:px-4 ${
+                  isDark ? "text-white" : "text-white"
+                } hidden md:block`}
+              >
                 SpeakFlow
               </h1>
             </div>
@@ -132,16 +139,16 @@ const Navbar = () => {
                 src={user.photoURL}
                 alt=""
               />
-              <button onClick={handleLogout} className="tom-btn btn">
+              <button onClick={handleLogout} className="tom-bt btn">
                 Logout
               </button>
             </div>
           ) : (
             <div className="navbar-end flex gap-4">
-              <Link className="btn tom-btn" to="/login">
+              <Link className="btn tom-bt" to="/login">
                 Login
               </Link>
-              <Link className="btn tom-btn" to="/register">
+              <Link className="btn tom-bt" to="/register">
                 Register
               </Link>
             </div>
