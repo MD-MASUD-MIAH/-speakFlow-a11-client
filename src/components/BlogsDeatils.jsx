@@ -16,10 +16,10 @@ const BlogsDeatils = () => {
     e.preventDefault();
 
     const comment = e.target.comment.value;
-    const blogId = blog._id;
-    const commenterEmail = user.email;
-    const photo = user.photoURL;
-    const userName = user.displayName;
+    const blogId = blog?._id;
+    const commenterEmail = user?.email;
+    const photo = user?.photoURL;
+    const userName = user?.displayName;
 
     const commentData = {
       blogId,
@@ -51,7 +51,7 @@ const BlogsDeatils = () => {
     refetchInterval: 1000,
     refetchOnWindowFocus: true,
     queryFn: async () => {
-      const res = await fetch(`http://localhost:4000/comment/${blog._id}`);
+      const res = await fetch(`http://localhost:4000/comment/${blog?._id}`);
       console.log("reunnnnn");
 
       return res.json();
@@ -166,31 +166,37 @@ const BlogsDeatils = () => {
                 </div>
               ))}
 
-              <div>
-                {user.email === blog.email ? (
-                  <div className="space-y-2">
-                    <h1 className=" font-bold md:text-xl">
-                      Commenting on your own blog is not allowed.
-                    </h1>
-                    <Link to={`/update/${blog._id}`} className="btn tom-btn">
-                      Update
-                    </Link>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={handlecomment}
-                    className=" flex flex-col justify-center gap-2"
-                  >
-                    <textarea
-                      type="text"
-                      name="comment"
-                      placeholder="comment here"
-                      className="textarea textarea-accent border-[#550527] focus:border-[#550527]"
-                    />
-                    <button className="tom-btn w-30">comment</button>
-                  </form>
-                )}
-              </div>
+              {user ? (
+                <div>
+                  {user?.email === blog?.email ? (
+                    <div className="space-y-2">
+                      <h1 className=" font-bold md:text-xl">
+                        Commenting on your own blog is not allowed.
+                      </h1>
+                      <Link to={`/update/${blog._id}`} className="btn tom-btn">
+                        Update
+                      </Link>
+                    </div>
+                  ) : (
+                    <form
+                      onSubmit={handlecomment}
+                      className=" flex flex-col justify-center gap-2"
+                    >
+                      <textarea
+                        type="text"
+                        name="comment"
+                        placeholder="comment here"
+                        className="textarea textarea-accent border-[#550527] focus:border-[#550527]"
+                      />
+                      <button className="tom-btn w-30">comment</button>
+                    </form>
+                  )}
+                </div>
+              ) : (
+                <p className="text-[#550527] font-bold">
+                  **If you want to comment, please log in first **
+                </p>
+              )}
             </div>
           </div>
         </div>

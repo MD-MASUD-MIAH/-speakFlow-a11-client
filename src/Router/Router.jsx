@@ -60,9 +60,9 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:4000/blogs/${params.id}`),
         element: (
-          <PiriveateRoute>
+          
             <BlogsDeatils></BlogsDeatils>
-          </PiriveateRoute>
+         
         ),
       },
 

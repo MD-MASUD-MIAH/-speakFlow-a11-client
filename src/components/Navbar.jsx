@@ -70,8 +70,10 @@ const Navbar = () => {
   return (
     <div
       className={` sticky top-0 z-20 ${
-        isDark ? "bg-[#1E232B]" : "bg-[#550527] text-white"
-      } border-b border-base-300`}
+        isDark
+          ? "bg-[#1E232B] border-b border-gray-400"
+          : "bg-[#550527] text-white"
+      } `}
     >
       <div className="w-11/12 mx-auto">
         <div className="navbar py-1 px-0">
@@ -139,16 +141,19 @@ const Navbar = () => {
                 src={user.photoURL}
                 alt=""
               />
-              <button onClick={handleLogout} className="tom-bt btn">
+              <button
+                onClick={handleLogout}
+                className={` btn ${isDark ? "tom-b" : "tom-bt"}`}
+              >
                 Logout
               </button>
             </div>
           ) : (
             <div className="navbar-end flex gap-4">
-              <Link className="btn tom-bt" to="/login">
+              <Link  className={` btn ${isDark ? "tom-b" : "tom-bt"}`} to="/login">
                 Login
               </Link>
-              <Link className="btn tom-bt" to="/register">
+              <Link  className={` btn ${isDark ? "tom-b" : "tom-bt"}`} to="/register">
                 Register
               </Link>
             </div>

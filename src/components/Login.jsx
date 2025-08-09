@@ -98,7 +98,7 @@ const Login = () => {
 
         <p className="text-center text-sm mt-4">
           Don’t have an account? Please{' '} 
-          <Link to='/register' href="#" className={`"${isDark?'text-white':'text-[#550527]'} underline"`}>
+          <Link to='/register' href="#" className={`${isDark?'text-white':'text-[#550527]'} underline`}>
           Register
           </Link>
         </p>

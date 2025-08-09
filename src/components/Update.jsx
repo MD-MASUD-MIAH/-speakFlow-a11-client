@@ -96,7 +96,7 @@ const Update = () => {
             <input
               type="email"
               name="email"
-              value={user.email}
+              value={user?.email}
               className="input input-bordered w-full"
             />
           </div>
@@ -105,7 +105,7 @@ const Update = () => {
             <label className="block text-sm font-medium mb-1">User Name</label>
             <input
               name="userName"
-              value={user.displayName}
+              value={user?.displayName}
               type="text"
               className="input input-bordered w-full"
             />
@@ -117,7 +117,7 @@ const Update = () => {
             </label>
             <input
               name="addedTime"
-              defaultValue={blog.addedTime}
+              defaultValue={blog?.addedTime}
               type="date"
               id="date"
               className="input input-bordered w-full"
@@ -130,7 +130,7 @@ const Update = () => {
             </label>
             <textarea
               name="shortDesc"
-              defaultValue={blog.shortDesc}
+              defaultValue={blog?.shortDesc}
               className="textarea textarea-bordered w-full"
               rows="3"
               placeholder="Brief description..."
