@@ -20,7 +20,7 @@ const Footer = () => {
         isDark ? "bg-[#1E232B] border-t border-gray-400" : "bg-[#550527]"
       }`}
     >
-      <footer className="footer p-10 text-white w-11/12 mx-auto">
+      <footer className="footer py-10 text-white w-11/12 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8  w-full">
           {/* Brand Column */}
           <div className="space-y-4">
@@ -52,14 +52,19 @@ const Footer = () => {
                 <MdPhone className="text-pink-300" size={20} />
                 <span className="text-gray-300">+88 01764091069</span>
               </div>
-              <div className="flex gap-4 mt-2">
+              <div>
+                <p className="text-gray-300">
+                  Road No. 23/45 Shibchar, Madaripur Bangladesh
+                </p>
+              </div>
+              {/* <div className="flex gap-4 mt-2">
                 <div className="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center hover:bg-pink-600 transition-colors">
                   <MdEmail size={16} />
                 </div>
                 <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <MdPhone size={16} />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
