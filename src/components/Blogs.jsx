@@ -1,7 +1,5 @@
 import axios from "axios";
 import { use } from "react";
-import { CiBookmark } from "react-icons/ci";
-import { IoShareSocialOutline } from "react-icons/io5";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
@@ -23,7 +21,10 @@ const Blogs = ({ res }) => {
     };
 
     axios
-      .post(`http://localhost:4000/place-wishList`, wishInfo)
+      .post(
+        `https://blogsite-b11a11-server.vercel.app/place-wishList`,
+        wishInfo
+      )
       .then((res) => {
         console.log("", res.data);
 
@@ -56,7 +57,7 @@ const Blogs = ({ res }) => {
           </div>
 
           <div className="flex items-center justify-center gap-2">
-           <span className="badge badge-xs text-white py-2 px-4 badge-warning bg-[#550527]">
+            <span className="badge badge-xs text-white py-2 px-4 badge-warning bg-[#550527]">
               {" "}
               {res.category}
             </span>

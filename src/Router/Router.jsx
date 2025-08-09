@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
       {
         index: true,
 
-        loader: () => fetch("http://localhost:4000/blogs"),
+        loader: () => fetch("https://blogsite-b11a11-server.vercel.app/blogs"),
         Component: Home,
       },
       {
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/featuredblog",
-        loader: () => fetch("http://localhost:4000/topTen"),
+        loader: () => fetch("https://blogsite-b11a11-server.vercel.app/topTen"),
         Component: Featured,
       },
       { path: "/login", Component: Login },
@@ -58,19 +58,15 @@ export const router = createBrowserRouter([
         path: "/details/:id",
 
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/blogs/${params.id}`),
-        element: (
-          
-            <BlogsDeatils></BlogsDeatils>
-         
-        ),
+          fetch(`https://blogsite-b11a11-server.vercel.app/blogs/${params.id}`),
+        element: <BlogsDeatils></BlogsDeatils>,
       },
 
       {
         path: "/update/:id",
 
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/blogs/${params.id}`),
+          fetch(`https://blogsite-b11a11-server.vercel.app/blogs/${params.id}`),
         element: (
           <PiriveateRoute>
             <Update></Update>
