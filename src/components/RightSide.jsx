@@ -1,6 +1,7 @@
 import { use } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
+import axios from "axios";
 
 const RightSide = ({ handleCategory }) => {
   const { isDark } = use(AuthContext);
@@ -17,21 +18,47 @@ const RightSide = ({ handleCategory }) => {
     "",
   ];
 
-  const handlesumit = (e) => {
-    e.preventDefault();
+  const handlesumit = async (e) => {
+  e.preventDefault();
 
-    const email = e.target.email.value;
-    if (email) {
-      Swal.fire({
-        title: " You're now subscribed – stay tuned for updates!",
-        icon: "success",
-        draggable: true,
-        timer: 1500,
-      });
+  const email = e.target.email.value.trim();
+  const dateTime = new Date().toISOString(); // current date & time in ISO format
 
-      e.target.reset();
-    }
-  };
+  if (!email) {
+    Swal.fire({
+      title: "Please enter a valid email!",
+      icon: "error",
+      draggable: true,
+      timer: 1500,
+    });
+    return;
+  }
+
+  try {
+    // POST request to backend
+    await axios.post("http://localhost:4000/subscriber", {
+      email,
+      dateTime,
+    });
+
+    Swal.fire({
+      title: "You're now subscribed – stay tuned for updates!",
+      icon: "success",
+      draggable: true,
+      timer: 1500,
+    });
+
+    e.target.reset();
+  } catch (error) {
+    console.error(error);
+    Swal.fire({
+      title: "Something went wrong!",
+      icon: "error",
+      draggable: true,
+      timer: 1500,
+    });
+  }
+};
   return (
     <div className="pb-4">
       <div>

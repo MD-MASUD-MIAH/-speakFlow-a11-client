@@ -1,12 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import GoogleLogin from './GoogleLogin';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router'
 import { PageName } from './PageName';
+import { imageUpload } from '../utilits/utilts';
 const Register = () => {
   const { registerUser,upDateUser,setUser ,isDark } = useContext(AuthContext);
+  const [image,setImage] =useState(null) 
+  console.log('image ready ok',image);
+  
 const navigate = useNavigate() 
 PageName('Register')
   const handleRegister = (e) => {
@@ -14,7 +18,7 @@ PageName('Register')
     const fmr = e.target;
     const newUser = new FormData(fmr);
 
-    const { email, password, photo, name } = Object.fromEntries(newUser.entries());
+    const { email, password,  name } = Object.fromEntries(newUser.entries());
 
     if(name.length < 3){
        Swal.fire({
@@ -25,7 +29,7 @@ PageName('Register')
   
       return
     }
-    if(photo.length === 0){
+    if(image.length === 0){
        Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -84,8 +88,8 @@ else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
         console.log(res.user);
 
 
-        upDateUser({displayName:name,photoURL: photo }).then(()=>{
-      setUser({ ...res?.user, displayName: name, photoURL: photo })
+        upDateUser({displayName:name,photoURL: image }).then(()=>{
+      setUser({ ...res?.user, displayName: name, photoURL: image })
 
        Swal.fire({
   title: "Register Success !",
@@ -123,6 +127,26 @@ navigate('/')
       });
   };
 
+
+const handleImageChange = async (e) => {
+    const image = e.target.files[0];
+    if (image) {
+      try {
+        const imageUrl = await imageUpload(image);
+       setImage(imageUrl);
+       console.log('image it is',imageUrl);
+       
+
+
+      } catch (error) {
+        console.log(error);
+
+      
+    }
+  }};
+
+
+
   return (
     <div className='w-11/12 mx-auto py-10  flex flex-col items-center justify-center min-h-[calc(100vh-300px)] '>
       <div className={`md:max-w-sm  border ${isDark?'border-white':'border-[#550527]'} rounded p-6 shadow`}>
@@ -144,7 +168,8 @@ navigate('/')
             <input
               required
               name='photo'
-              type="text"
+              type="file"
+              onChange={handleImageChange}
               className="w-full border-b placeholder:text-xs border-gray-300 focus:outline-none py-1"
               placeholder="Photo URL"
             />

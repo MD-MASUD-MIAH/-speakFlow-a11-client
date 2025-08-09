@@ -1,16 +1,37 @@
-import { use } from "react";
+import { use, useState } from "react";
 
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import useAxiosSecure from "../hook/useAxiosSecure";
 import { PageName } from "./PageName";
+import { imageUpload } from "../utilits/utilts";
 
 const AddBlogs = () => {
   PageName("Add Blog");
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
-  const { user } = use(AuthContext);
+  const { user ,isDark} = use(AuthContext);
+  const [image,setImage] =useState(null) 
+ 
+  
+const handleImageChange = async (e) => {
+    const image = e.target.files[0];
+    if (image) {
+      try {
+        const imageUrl = await imageUpload(image);
+       setImage(imageUrl);
+       console.log('image it is',imageUrl);
+       
+
+
+      } catch (error) {
+        console.log(error);
+
+      
+    }
+  }};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +40,7 @@ const AddBlogs = () => {
     const photoURL = user.photoURL;
     const newBlog = {
       title: form.title.value,
-      image: form.image.value,
+      image: image,
       category: form.category.value,
       shortDesc: form.shortDesc.value,
       longDesc: form.longDesc.value,
@@ -52,7 +73,7 @@ const AddBlogs = () => {
   return (
     <div className=" ">
       <div className="py-20 w-11/12 mx-auto">
-        <div className="md:max-w-5xl mx-auto border border-[#550527] rounded p-6 shadow ">
+        <div className={`"md:max-w-5xl mx-auto border ${isDark? 'border-white': 'border-[#550527]'}  rounded p-6 shadow "`}>
           <h2 className="text-3xl font-bold  mb-6 ">Create New Blog</h2>
           <form
             onSubmit={handleSubmit}
@@ -72,7 +93,8 @@ const AddBlogs = () => {
               <label className="block text-sm font-medium mb-1">PhotoURL</label>
               <input
                 name="image"
-                type="text"
+                type="file"  
+                onChange={handleImageChange}
                 placeholder="enter photo url"
                 className="input input-bordered w-full"
               />

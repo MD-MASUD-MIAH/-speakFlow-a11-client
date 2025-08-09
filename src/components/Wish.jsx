@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 
 const Wish = ({ blog, setBlogs, blogs }) => {
-  const { isDark } = use(AuthContext);
+const { isDark } = use(AuthContext);
 
   const handleDelte = (id) => {
     Swal.fire({
@@ -67,7 +67,7 @@ const Wish = ({ blog, setBlogs, blogs }) => {
               })}
             </p>
 
-            <h3 className="text-xl font-bold ">{blog.title}</h3>
+            <h3 className="text-xl font-bold ">{blog.title.slice(0, 30)}..</h3>
 
             <div className="flex justify-between items-center pt-4">
               <div className="flex space-x-3">

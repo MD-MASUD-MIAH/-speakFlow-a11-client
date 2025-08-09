@@ -12,6 +12,8 @@ import Update from "../components/Update";
 import Wishlist from "../components/Wishlist";
 import PiriveateRoute from "../context/PiriveateRoute";
 import Home from "../pages/Home";
+import DashboardLayout from "../Root/DashboardLayout";
+import Statistics from "../components/Statistics";
 
 export const router = createBrowserRouter([
   {
@@ -75,4 +77,19 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:'/dashboard', element:<PiriveateRoute><DashboardLayout></DashboardLayout></PiriveateRoute>,children:[
+
+      {index:true , element:<PiriveateRoute><Statistics></Statistics></PiriveateRoute>},
+      {path:'addblog', element:<PiriveateRoute><AddBlogs></AddBlogs></PiriveateRoute>},
+      {
+        path: "wishlist",
+        element: (
+          <PiriveateRoute>
+            <Wishlist></Wishlist>
+          </PiriveateRoute>
+        ),
+      }
+    ]
+  }
 ]);

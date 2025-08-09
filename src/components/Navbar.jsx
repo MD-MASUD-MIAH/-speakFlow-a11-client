@@ -36,6 +36,14 @@ const Navbar = () => {
           </li>
         </>
       )}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
+        </>
+      )}
+
       <li>
         <Dark></Dark>
       </li>
@@ -150,10 +158,16 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="navbar-end flex gap-4">
-              <Link  className={` btn ${isDark ? "tom-b" : "tom-bt"}`} to="/login">
+              <Link
+                className={` btn ${isDark ? "tom-b" : "tom-bt"}`}
+                to="/login"
+              >
                 Login
               </Link>
-              <Link  className={` btn ${isDark ? "tom-b" : "tom-bt"}`} to="/register">
+              <Link
+                className={` btn ${isDark ? "tom-b" : "tom-bt"}`}
+                to="/register"
+              >
                 Register
               </Link>
             </div>
