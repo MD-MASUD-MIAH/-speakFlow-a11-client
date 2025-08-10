@@ -1,13 +1,12 @@
 import Lottie from "lottie-react";
 import { use } from "react";
 import { Link, NavLink } from "react-router";
-import Swal from "sweetalert2";
 import log from "../../public/animation.json";
 import { AuthContext } from "../context/AuthContext";
 import Dark from "./Dark";
 import View from "./View";
 const Navbar = () => {
-  const { user, logout, isDark } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
 
   const [ref, setRef] = View();
 
@@ -19,14 +18,14 @@ const Navbar = () => {
       <li>
         <NavLink to="/allblogs">All blogs</NavLink>
       </li>
-     
+
       <li>
         <NavLink to="/featuredblog"> Featured Blogs</NavLink>
       </li>
       <li>
         <NavLink to="/about"> About</NavLink>
       </li>
-    
+
       {user && (
         <>
           <li>
@@ -35,35 +34,12 @@ const Navbar = () => {
         </>
       )}
 
-     
+      <li>
+        <Dark></Dark>
+      </li>
     </>
   );
 
-  const handleLogout = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to Logout!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Logout!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        logout()
-          .then(() => {})
-          .catch((error) => {
-            console.log(error.message);
-          });
-
-        Swal.fire({
-          title: "Logout!",
-          text: "Logout Success .",
-          icon: "success",
-        });
-      }
-    });
-  };
   return (
     <div
       className={` sticky top-0 z-20 ${
@@ -133,17 +109,16 @@ const Navbar = () => {
           </div>
           {user ? (
             <div className="navbar-end flex gap-4">
-              <img
-                className="md:w-10 md:h-10 h-8 w-8 rounded-full"
-                src={user.photoURL}
-                alt=""
-              />
-              <button
-                onClick={handleLogout}
-                className={` btn ${isDark ? "tom-b" : "tom-bt"}`}
-              >
-                Logout
-              </button>
+              <Link to={"/dashboard"}>
+                <img
+                  className="w-10 h-10 rounded-full object-cover border-2 border-white dark:border-gray-700 shadow-lg hover:shadow-lg transition-all duration-200 hover:scale-105 cursor-pointer "
+                  src={user?.photoURL || "https://via.placeholder.com/40"}
+                  alt={user?.displayName || "User avatar"}
+                  onError={(e) => {
+                    e.target.src = "https://via.placeholder.com/40";
+                  }}
+                />
+              </Link>
             </div>
           ) : (
             <div className="navbar-end flex gap-4">
