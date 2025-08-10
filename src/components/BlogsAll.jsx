@@ -1,13 +1,13 @@
 import axios from "axios";
 import { use } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link,  } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 
 const BlogsAll = ({ blog }) => {
   const { user, isDark } = use(AuthContext);
   const { _id, image, title, addedTime, longDesc, shortDesc, category } = blog;
-  const navigate = useNavigate();
+
   const handleWish = () => {
     const orderInfo = {
       wishId: _id,
@@ -24,7 +24,7 @@ const BlogsAll = ({ blog }) => {
       .post(`http://localhost:4000/place-wishList`, orderInfo)
       .then((res) => {
         console.log(res.data);
-        navigate("/wishlist");
+       
         Swal.fire({
           title: "Added to WishList!",
           icon: "success",

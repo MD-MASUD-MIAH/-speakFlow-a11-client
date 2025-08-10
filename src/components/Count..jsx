@@ -1,11 +1,30 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { use } from "react";
 import CountUp from "react-countup";
 import { FaMicroblog } from "react-icons/fa";
 import { GoCodeReview } from "react-icons/go";
 import { GrFormView, GrGroup } from "react-icons/gr";
 import { AuthContext } from "../context/AuthContext";
+import Loader from "./Loader";
 const Count = () => {
-  const {isDark} =use(AuthContext)
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["statsCount"],
+    queryFn: async () => {
+      const res = await axios.get("http://localhost:4000/statsCount");
+      return res.data; // { blogs: 42, subscribers: 15 }
+    },
+  });
+
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
+
+  if (isError) {
+    return <p className="text-center text-red-500">Error: {error.message}</p>;
+  }
+
+  const { isDark } = use(AuthContext);
   return (
     <div className="py-10 overflow-x-hidden">
       <div>
@@ -17,13 +36,18 @@ const Count = () => {
           distraction-free reading interface,
           <br />{" "}
           <span className="hidden md:block">
-           Whether you're here to write, read, or do both — you're in the right place.
+            Whether you're here to write, read, or do both — you're in the right
+            place.
           </span>
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
+        <div
+          className={`card  border-1 ${
+            isDark ? "border-white" : "border-[#550527]"
+          }  card-xl shadow-sm `}
+        >
           <div className="card-body gap-6">
             <div>
               <FaMicroblog size={40}></FaMicroblog>
@@ -33,7 +57,7 @@ const Count = () => {
                 enableScrollSpy={true}
                 scrollSpyDelay={0}
                 suffix="+"
-                end={1990}
+                end={data.blogs}
                 duration={10}
               ></CountUp>
             </h1>
@@ -43,7 +67,11 @@ const Count = () => {
           </div>
         </div>
 
-        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
+        <div
+          className={`card  border-1 ${
+            isDark ? "border-white" : "border-[#550527]"
+          }  card-xl shadow-sm `}
+        >
           <div className="card-body gap-6">
             <div>
               <GoCodeReview size={40}></GoCodeReview>
@@ -53,7 +81,7 @@ const Count = () => {
                 enableScrollSpy={true}
                 scrollSpyDelay={0}
                 suffix="+"
-                end={199}
+                end={data.comments}
                 duration={5}
               ></CountUp>
             </h1>
@@ -63,7 +91,11 @@ const Count = () => {
           </div>
         </div>
 
-        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
+        <div
+          className={`card  border-1 ${
+            isDark ? "border-white" : "border-[#550527]"
+          }  card-xl shadow-sm `}
+        >
           <div className="card-body gap-6">
             <div>
               <GrGroup size={40}></GrGroup>
@@ -73,7 +105,7 @@ const Count = () => {
                 enableScrollSpy={true}
                 scrollSpyDelay={0}
                 suffix="+"
-                end={900}
+                end={data.subscribers}
                 duration={15}
               ></CountUp>
             </h1>
@@ -83,7 +115,11 @@ const Count = () => {
           </div>
         </div>
 
-        <div className={`card  border-1 ${isDark?'border-white':'border-[#550527]'}  card-xl shadow-sm `}>
+        <div
+          className={`card  border-1 ${
+            isDark ? "border-white" : "border-[#550527]"
+          }  card-xl shadow-sm `}
+        >
           <div className="card-body gap-6">
             <div>
               <GrFormView size={40}></GrFormView>
@@ -93,7 +129,7 @@ const Count = () => {
                 enableScrollSpy={true}
                 scrollSpyDelay={0}
                 suffix="+"
-                end={8000}
+                end={500}
                 duration={15}
               ></CountUp>
             </h1>

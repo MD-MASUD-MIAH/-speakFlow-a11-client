@@ -37,7 +37,7 @@ PageName('Wishlist')
               to="/allblogs"
               className="inline-block tom-btn"
             >
-              Add a Blog Now
+              Wish a Blog Now
             </Link>
           </div>
         </div>: <div className="flex-grow">

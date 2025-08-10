@@ -9,7 +9,9 @@ import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import Dark from "./Dark";
-import Item from "./Item";
+import Item from "./Item"; 
+import { FaRegNewspaper } from "react-icons/fa";
+
 const SideBar = () => {
   const [isActive, setActive] = useState(false);
 
@@ -110,6 +112,11 @@ const SideBar = () => {
                 icon={CiBookmarkPlus}
                 label="My Wishlist"
                 address="wishlist"
+              />
+              <Item
+                icon={FaRegNewspaper}
+                label="My Blogs"
+                address="myblogs"
               />
 
               <Item icon={BsGraphUp} label="Statistics" address="/dashboard" />

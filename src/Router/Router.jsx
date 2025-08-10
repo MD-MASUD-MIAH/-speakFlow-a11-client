@@ -14,6 +14,7 @@ import PiriveateRoute from "../context/PiriveateRoute";
 import Home from "../pages/Home";
 import DashboardLayout from "../Root/DashboardLayout";
 import Statistics from "../components/Statistics";
+import MyBlogs from "../components/MyBlogs";
 
 export const router = createBrowserRouter([
   {
@@ -33,22 +34,8 @@ export const router = createBrowserRouter([
 
         Component: AllBlogs,
       },
-      {
-        path: "/addblog",
-        element: (
-          <PiriveateRoute>
-            <AddBlogs></AddBlogs>
-          </PiriveateRoute>
-        ),
-      },
-      {
-        path: "/wishlist",
-        element: (
-          <PiriveateRoute>
-            <Wishlist></Wishlist>
-          </PiriveateRoute>
-        ),
-      },
+      
+     
       {
         path: "/featuredblog",
         loader: () => fetch("http://localhost:4000/topTen"),
@@ -89,7 +76,8 @@ export const router = createBrowserRouter([
             <Wishlist></Wishlist>
           </PiriveateRoute>
         ),
-      }
+      },
+      {path:'myblogs',  element:<PiriveateRoute><MyBlogs></MyBlogs></PiriveateRoute>}
     ]
   }
 ]);

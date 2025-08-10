@@ -1,5 +1,5 @@
 import axios from "axios";
-import { use } from "react";
+import { use, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 const axiosInstance = axios.create({
@@ -10,29 +10,44 @@ const axiosInstance = axios.create({
 const useAxiosSecure = () => {
   const { user, logout } = use(AuthContext);
 
-  const token = user?.accessToken;
+  useEffect(() => {
+    const token = user?.accessToken;
 
-  axiosInstance.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${token}`;
+    // Add request interceptor
+    const requestInterceptor = axiosInstance.interceptors.request.use(
+      (config) => {
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => Promise.reject(error)
+    );
 
-    return config;
-  });
-
-  axiosInstance.interceptors.response.use(
-    (res) => res,
-    (err) => {
-      if (err.status === 401 || err.status === 403) {
-        logout()
-          .then(() => {
-            console.log(
-              `You are logged out because of an error with ${err.status} code.`
-            );
-          })
-          .catch((err) => console.log(err));
+    // Add response interceptor
+    const responseInterceptor = axiosInstance.interceptors.response.use(
+      (res) => res,
+      (err) => {
+        const status = err.response?.status;
+        if (status === 401 || status === 403) {
+          logout()
+            .then(() => {
+              console.log(
+                `You are logged out because of an error with status code ${status}.`
+              );
+            })
+            .catch((logoutErr) => console.error(logoutErr));
+        }
+        return Promise.reject(err);
       }
-      return Promise.reject(err);
-    }
-  );
+    );
+
+    // Cleanup interceptors when the component using this hook unmounts
+    return () => {
+      axiosInstance.interceptors.request.eject(requestInterceptor);
+      axiosInstance.interceptors.response.eject(responseInterceptor);
+    };
+  }, [user?.accessToken, logout]);
 
   return axiosInstance;
 };
