@@ -15,6 +15,7 @@ import Home from "../pages/Home";
 import DashboardLayout from "../Root/DashboardLayout";
 import Statistics from "../components/Statistics";
 import MyBlogs from "../components/MyBlogs";
+import About from "../components/About";
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +41,8 @@ export const router = createBrowserRouter([
         path: "/featuredblog",
         loader: () => fetch("http://localhost:4000/topTen"),
         Component: Featured,
-      },
+      }, 
+      { path:'/about',element:<About></About>},
       { path: "/login", Component: Login },
       { path: "/register", Component: Register },
       {

@@ -23,6 +23,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/featuredblog"> Featured Blogs</NavLink>
       </li>
+      <li>
+        <NavLink to="/about"> About</NavLink>
+      </li>
     
       {user && (
         <>
