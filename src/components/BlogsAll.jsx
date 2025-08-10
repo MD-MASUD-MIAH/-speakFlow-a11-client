@@ -1,6 +1,6 @@
 import axios from "axios";
 import { use } from "react";
-import { Link,  } from "react-router";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 
@@ -21,10 +21,13 @@ const BlogsAll = ({ blog }) => {
     };
 
     axios
-      .post(`http://localhost:4000/place-wishList`, orderInfo)
+      .post(
+        `https://blogsite-b11a11-server.vercel.app/place-wishList`,
+        orderInfo
+      )
       .then((res) => {
         console.log(res.data);
-       
+
         Swal.fire({
           title: "Added to WishList!",
           icon: "success",

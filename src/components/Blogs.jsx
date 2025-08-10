@@ -21,7 +21,10 @@ const Blogs = ({ res }) => {
     };
 
     axios
-      .post(`http://localhost:4000/place-wishList`, wishInfo)
+      .post(
+        `https://blogsite-b11a11-server.vercel.app/place-wishList`,
+        wishInfo
+      )
       .then((res) => {
         console.log("", res.data);
 

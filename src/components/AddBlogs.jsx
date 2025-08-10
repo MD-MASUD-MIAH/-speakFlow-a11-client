@@ -4,34 +4,28 @@ import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import useAxiosSecure from "../hook/useAxiosSecure";
-import { PageName } from "./PageName";
 import { imageUpload } from "../utilits/utilts";
+import { PageName } from "./PageName";
 
 const AddBlogs = () => {
   PageName("Add Blog");
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
-  const { user ,isDark} = use(AuthContext);
-  const [image,setImage] =useState(null) 
- 
-  
-const handleImageChange = async (e) => {
+  const { user, isDark } = use(AuthContext);
+  const [image, setImage] = useState(null);
+
+  const handleImageChange = async (e) => {
     const image = e.target.files[0];
     if (image) {
       try {
         const imageUrl = await imageUpload(image);
-       setImage(imageUrl);
-       console.log('image it is',imageUrl);
-       
-
-
+        setImage(imageUrl);
+        console.log("image it is", imageUrl);
       } catch (error) {
         console.log(error);
-
-      
+      }
     }
-  }};
-
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +45,7 @@ const handleImageChange = async (e) => {
     };
 
     axiosSecure
-      .post("http://localhost:4000/blogs", newBlog)
+      .post("https://blogsite-b11a11-server.vercel.app/blogs", newBlog)
       .then((res) => {
         console.log(res.data);
         navigate("/");
@@ -73,7 +67,11 @@ const handleImageChange = async (e) => {
   return (
     <div className=" ">
       <div className="py-20 w-11/12 mx-auto">
-        <div className={`"md:max-w-5xl mx-auto border ${isDark? 'border-white': 'border-[#550527]'}  rounded p-6 shadow "`}>
+        <div
+          className={`"md:max-w-5xl mx-auto border ${
+            isDark ? "border-white" : "border-[#550527]"
+          }  rounded p-6 shadow "`}
+        >
           <h2 className="text-3xl font-bold  mb-6 ">Create New Blog</h2>
           <form
             onSubmit={handleSubmit}
@@ -93,7 +91,7 @@ const handleImageChange = async (e) => {
               <label className="block text-sm font-medium mb-1">PhotoURL</label>
               <input
                 name="image"
-                type="file"  
+                type="file"
                 onChange={handleImageChange}
                 placeholder="enter photo url"
                 className="input input-bordered w-full"

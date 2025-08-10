@@ -1,7 +1,7 @@
+import axios from "axios";
 import { use } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
-import axios from "axios";
 
 const RightSide = ({ handleCategory }) => {
   const { isDark } = use(AuthContext);
@@ -19,46 +19,46 @@ const RightSide = ({ handleCategory }) => {
   ];
 
   const handlesumit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const email = e.target.email.value.trim();
-  const dateTime = new Date().toISOString(); // current date & time in ISO format
+    const email = e.target.email.value.trim();
+    const dateTime = new Date().toISOString(); // current date & time in ISO format
 
-  if (!email) {
-    Swal.fire({
-      title: "Please enter a valid email!",
-      icon: "error",
-      draggable: true,
-      timer: 1500,
-    });
-    return;
-  }
+    if (!email) {
+      Swal.fire({
+        title: "Please enter a valid email!",
+        icon: "error",
+        draggable: true,
+        timer: 1500,
+      });
+      return;
+    }
 
-  try {
-    // POST request to backend
-    await axios.post("http://localhost:4000/subscriber", {
-      email,
-      dateTime,
-    });
+    try {
+      // POST request to backend
+      await axios.post("https://blogsite-b11a11-server.vercel.app/subscriber", {
+        email,
+        dateTime,
+      });
 
-    Swal.fire({
-      title: "You're now subscribed – stay tuned for updates!",
-      icon: "success",
-      draggable: true,
-      timer: 1500,
-    });
+      Swal.fire({
+        title: "You're now subscribed – stay tuned for updates!",
+        icon: "success",
+        draggable: true,
+        timer: 1500,
+      });
 
-    e.target.reset();
-  } catch (error) {
-    console.error(error);
-    Swal.fire({
-      title: "Something went wrong!",
-      icon: "error",
-      draggable: true,
-      timer: 1500,
-    });
-  }
-};
+      e.target.reset();
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Something went wrong!",
+        icon: "error",
+        draggable: true,
+        timer: 1500,
+      });
+    }
+  };
   return (
     <div className="pb-4">
       <div>
@@ -73,7 +73,7 @@ const RightSide = ({ handleCategory }) => {
               onClick={() => handleCategory(item)}
               className="btn rounded-0 uppercase"
             >
-              {item?item:'Latest Blogs'}
+              {item ? item : "Latest Blogs"}
             </button>
           ))}
         </div>

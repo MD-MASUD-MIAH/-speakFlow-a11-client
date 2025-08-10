@@ -21,7 +21,10 @@ const Update = () => {
     const blogUpdate = Object.fromEntries(plant.entries());
 
     axiosSecure
-      .put(`http://localhost:4000/blogs/${blog._id}`, blogUpdate)
+      .put(
+        `https://blogsite-b11a11-server.vercel.app/blogs/${blog._id}`,
+        blogUpdate
+      )
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire({

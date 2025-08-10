@@ -19,7 +19,7 @@ const { isDark } = use(AuthContext);
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:4000/wishList/${id}`)
+          .delete(`https://blogsite-b11a11-server.vercel.app/wishList/${id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               const ramindata = blogs.filter((res) => res._id !== id);

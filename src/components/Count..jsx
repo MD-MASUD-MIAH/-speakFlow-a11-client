@@ -11,7 +11,9 @@ const Count = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["statsCount"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:4000/statsCount");
+      const res = await axios.get(
+        "https://blogsite-b11a11-server.vercel.app/statsCount"
+      );
       return res.data; // { blogs: 42, subscribers: 15 }
     },
   });
